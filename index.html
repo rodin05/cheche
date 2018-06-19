@@ -928,14 +928,14 @@
             <input class="getCode login-getcode get-msgcode" value="获取验证码" type="button" @click="getCode"></input>
             <div class="shuxian"></div>
         </div>
-        <div class="btn" @click="sureHandle">加入易到</div>
+        <div class="btn" @click="sureHandle">加入车车</div>
         <p class="undertext">
             <input type="checkbox" id="item1" v-model="isaggree"><label for="item1"></label>
-            阅读并接受 <span class="blue" @click="showxieyi">《易到网约车平台驾驶员接入协议》</span>
+            阅读并接受 <span class="blue" @click="showxieyi">《车车网约车平台驾驶员接入协议》</span>
         </p>
         <div class="tishi stopPop" v-if="tishi">
             <div class="wrap">
-                <p>请阅读并同意《易到网约车平台驾驶员接入协议》</p>
+                <p>请阅读并同意《车车网约车平台驾驶员接入协议》</p>
                 <div @click="closetishi">确定</div>
             </div>
         </div>
@@ -982,10 +982,10 @@
             <ol>
                 <li>按照协议约定，获取相应的信息平台服务。</li>
                 <li>乙方应保证已取得政府主管部门认可的网约车驾驶员或出租车驾驶员和所驾驶车辆的资质证照，并将相关信息真实、完整地提供给甲方。</li>
-                <li>遵守易到平台和易到用车网公示的相关管理规范及流程。</li>
+                <li>遵守车车平台和车车用车网公示的相关管理规范及流程。</li>
                 <li>遵守道路交通安全相关法律法规，不超速、不超员、不疲劳驾驶、不接打手机、不关闭动态监控系统，确保乘客及自身生命安全。</li>
                 <li>乙方应要求乘客系好安全带，并在乘客乘车前和下车时进行行车安全提示。</li>
-                <li>若甲方对本协议和相关管理规范及流程（本协议和相关管理规范及流程合称“相关条款”）作出任何修改，将由甲方及时将修订后的相关条款在易到用车网或易到平台上及时公示。该等公示即视为对乙方进行了通知。乙方如果不同意甲方对相关条款所做的修改，乙方有权停止使用易到平台的信息服务。如果乙方继续使用易到平台的信息服务，则视为乙方接受甲方对相关条款所做的修改。</li>
+                <li>若甲方对本协议和相关管理规范及流程（本协议和相关管理规范及流程合称“相关条款”）作出任何修改，将由甲方及时将修订后的相关条款在车车用车网或易到平台上及时公示。该等公示即视为对乙方进行了通知。乙方如果不同意甲方对相关条款所做的修改，乙方有权停止使用易到平台的信息服务。如果乙方继续使用易到平台的信息服务，则视为乙方接受甲方对相关条款所做的修改。</li>
                 <li>乙方确认，甲方仅为网约车信息服务平台，乙方在车辆运营过程中所发生的交通事故由乙方或其租赁公司或其劳务公司承担一切责任，与甲方无关。</li>
                 <li>乙方应当安全驾驶，由于疲劳驾驶或者自身疾病引起的伤亡与甲方无关。</li>
                 <li>依据相关法律、法规、政策应由乙方享有的其他权利或承担的其他义务。</li>
@@ -997,7 +997,7 @@
             </ol>
             <p class="tit2">第六条 通知</p>
             <ol>
-                <li>本协议项下甲方对于乙方所有的通知均可通过易到平台的网页公告、电子邮件、手机短信或常规的信件传送等方式进行；甲方可任意选择其中一种方式通知乙方，该通知于发送之日视为已送达乙方，乙方知悉并接受通知之内容。</li>
+                <li>本协议项下甲方对于乙方所有的通知均可通过车车平台的网页公告、电子邮件、手机短信或常规的信件传送等方式进行；甲方可任意选择其中一种方式通知乙方，该通知于发送之日视为已送达乙方，乙方知悉并接受通知之内容。</li>
             </ol>
             <p class="tit2">第七条 适用法律与争议的解决</p>
             <ol>
@@ -1588,15 +1588,15 @@
             //      微信二次分享
             var wShare = {};
             wShare.shareImg = 'https://i1.yongche.Name/media/g2/M03/00/1D/rBEBJVdngbqIagETAABqiclQEwcAAALoQP6a7IAAGqh129.png';
-            wShare.shareTitle = '易到专车 车主招募';
-            wShare.shareContent = '始于专车 忠于易到';
+            wShare.shareTitle = '车车专车 车主招募';
+            wShare.shareContent = '始于专车 忠于车车';
             wShare.shareUrl = strHrefShare;
             wxShareFn(wShare);
             if (window.navigator.userAgent.indexOf("YongChe")> -1){
                 ajaxShare({
                     url: strHrefShare,//TODO
-                    title: '易到专车 车主招募',
-                    description: '始于专车 忠于易到'
+                    title: '车车专车 车主招募',
+                    description: '始于专车 忠于车车'
                 });
             }
         }
@@ -2411,7 +2411,7 @@
                     //alert(version)
                     version = version.split(".");
                     if(version[0]<8 || (version[1] < 3 && version[0]==8) ){
-                        alert("您当前版本过低，将无法上传图片,请先升级易到App！")
+                        alert("您当前版本过低，将无法上传图片,请先升级车车App！")
                         //return;
                     }
                     $('input[type=file]').on('click',function() {
