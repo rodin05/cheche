@@ -1,0 +1,3171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">  <!--自动检测在网页中可能出现的电话号码-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="yes" name=" apple-mobile-web-app-capable" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <title>易到车主加盟</title>
+    <script>
+        if (/Android (\d+\.\d+)/.test(navigator.userAgent)){//安卓
+            var  version = parseFloat(RegExp.$1);
+            if (version>2.3){
+                var  phoneScale = parseInt(window.screen.width)/750;
+                document.write( '<meta name="viewport" content="width=750, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi,user-scalable=no">' );
+            } else {
+                document.write( '<meta name="viewport" content="width=750, target-densitydpi=device-dpi,user-scalable=no">' );
+            }
+        } else {
+            document.write('<meta name="viewport" content="width=750, user-scalable=no, target-densitydpi=device-dpi, viewport-fit=cover">');
+            //document.write('<meta name="viewport" content="width=750, user-scalable=no">');
+        }
+    </script>
+    <script src="../../config.js"></script>
+    <!--<link rel="stylesheet" href="https://i1.yongche.name/s/css/201712/swiper.min.css?1478153218">-->
+    <link rel="stylesheet" href="./lib/swiper.min.css">
+    <link rel="stylesheet" href="./lib/LArea.css">
+    <link rel="stylesheet" href="./lib/mobiscroll.icons.css">
+    <link rel="stylesheet" href="./lib/mobiscroll.widget.css">
+    <link rel="stylesheet" href="./lib/mobiscroll.widget.ios7.css">
+    <link rel="stylesheet" href="./lib/mobiscroll.scroller.css">
+    <link rel="stylesheet" href="./lib/mobiscroll.scroller.ios7.css">
+    <link rel="stylesheet" href="./lib/mobiscroll.animation.css">
+    <link rel="stylesheet" href="./lib/mpick.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: "Arial";
+            -webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-tap-highlight-color:transparent;
+        }
+        a, img {
+            -webkit-touch-callout: none; /* 禁止长按链接与图片弹出菜单 */
+            text-decoration:none;
+        }
+        img{
+            display: inline-block;
+            vertical-align: middle;
+        }
+        input[type="submit"], input[type="reset"], input[type="button"], button { -webkit-appearance: none;border: none /*去掉苹果的默认UI来渲染按钮*/}
+        h1,h2,h3,h4,h5,h6{
+            font-weight: normal;
+        }
+        html, body {
+            /*-webkit-user-select: none;   !* 禁止选中文本（如无文本选中需求，此为必选项） *!*/
+            user-select: none;
+            width:100%;
+            font-family: PingFangSC-Regular;
+            /*background: #f0f0f0;*/
+            height: 100%;
+        }
+        .clearfix{overflow:hidden;_zoom:1;}
+        .left{float:left;}
+        input::-webkit-input-placeholder{color: #C2C2C2;}
+        .right input::-webkit-input-placeholder{font-size: 34px;
+            color: #C8C8C8;}
+        select {
+            border: solid 1px #969696;
+            appearance:none;
+            -moz-appearance:none;
+            -webkit-appearance:none;
+            outline:none;
+            padding-left: 4px;
+            width:30px;
+            height:20px;
+            margin: 0 5px;
+            background: url("./imgs/Triangle.png") no-repeat scroll right center transparent;
+        }
+        select::-ms-expand { display: none; }
+        .lcalendar_cancel{color: #323232;}
+        .lcalendar_finish{color: #323232;}
+
+    </style>
+    <style>
+        .swiper-container {
+            width: 686px;
+            height: 686px;
+            overflow: visible;
+        }
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        .swiper-pagination-bullet{
+            width: 16px;
+            height: 16px;
+            border: 2px solid #FF5252;
+            box-sizing: border-box;
+            background: transparent;
+        }
+        .swiper-pagination-bullet-active{
+            background: #FF5252;
+        }
+        .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet{
+            margin: 0 10px;
+        }
+        .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{
+            bottom: -48px;
+        }
+    </style>
+    <style>
+        @-webkit-keyframes line-spin-fade-loader {
+            50% {
+                opacity: 0.3; }
+
+            100% {
+                opacity: 1; } }
+
+        @keyframes line-spin-fade-loader {
+            50% {
+                opacity: 0.3; }
+
+            100% {
+                opacity: 1; }
+        }
+
+        .line-spin-fade-loader {
+            position: relative;
+            position: absolute;
+            top:50%;
+            left:50%;
+        }
+        .line-spin-fade-loader > div:nth-child(1) {
+            top: 20px;
+            left: 0;
+            -webkit-animation: line-spin-fade-loader 1.2s 0.12s infinite ease-in-out;
+            animation: line-spin-fade-loader 1.2s 0.12s infinite ease-in-out; }
+        .line-spin-fade-loader > div:nth-child(2) {
+            top: 13.63636px;
+            left: 13.63636px;
+            -webkit-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            -webkit-animation: line-spin-fade-loader 1.2s 0.24s infinite ease-in-out;
+            animation: line-spin-fade-loader 1.2s 0.24s infinite ease-in-out; }
+        .line-spin-fade-loader > div:nth-child(3) {
+            top: 0;
+            left: 20px;
+            -webkit-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+            -webkit-animation: line-spin-fade-loader 1.2s 0.36s infinite ease-in-out;
+            animation: line-spin-fade-loader 1.2s 0.36s infinite ease-in-out; }
+        .line-spin-fade-loader > div:nth-child(4) {
+            top: -13.63636px;
+            left: 13.63636px;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+            -webkit-animation: line-spin-fade-loader 1.2s 0.48s infinite ease-in-out;
+            animation: line-spin-fade-loader 1.2s 0.48s infinite ease-in-out; }
+        .line-spin-fade-loader > div:nth-child(5) {
+            top: -20px;
+            left: 0;
+            -webkit-animation: line-spin-fade-loader 1.2s 0.6s infinite ease-in-out;
+            animation: line-spin-fade-loader 1.2s 0.6s infinite ease-in-out; }
+        .line-spin-fade-loader > div:nth-child(6) {
+            top: -13.63636px;
+            left: -13.63636px;
+            -webkit-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            -webkit-animation: line-spin-fade-loader 1.2s 0.72s infinite ease-in-out;
+            animation: line-spin-fade-loader 1.2s 0.72s infinite ease-in-out; }
+        .line-spin-fade-loader > div:nth-child(7) {
+            top: 0;
+            left: -20px;
+            -webkit-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+            -webkit-animation: line-spin-fade-loader 1.2s 0.84s infinite ease-in-out;
+            animation: line-spin-fade-loader 1.2s 0.84s infinite ease-in-out; }
+        .line-spin-fade-loader > div:nth-child(8) {
+            top: 13.63636px;
+            left: -13.63636px;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+            -webkit-animation: line-spin-fade-loader 1.2s 0.96s infinite ease-in-out;
+            animation: line-spin-fade-loader 1.2s 0.96s infinite ease-in-out; }
+        .line-spin-fade-loader > div {
+            background-color:  #fff;
+            width: 4px;
+            height: 35px;
+            border-radius: 2px;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+            position: absolute;
+            width: 3px;
+            height: 10px; }
+    </style>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+        #app{
+            width: 100%;
+            height: 100%;
+            background-color: #f1e9dc;
+        }
+        .loginBox{
+            width: 100%;
+            background: url(./imgs/loginBg.png) no-repeat;
+            /*height: 100%;*/
+            box-sizing: border-box;
+            padding-top: 667px;
+            position: relative;
+            background-color: #f1e9dc;
+            background-size: 100% auto;
+        }
+        .loginBox .on-input {
+            width: 630px;
+            margin: 0 auto;
+        }
+        .loginBox .on-input input{
+            outline: none;
+            display: block;
+            width: 100%;
+            color: #333333;
+            font-size: 34px;
+            background: #fff;
+            border-radius: 8px;
+            box-sizing: border-box;
+            height: 104px;
+            line-height: 34px;
+            padding-left: 31px;
+            border: none;
+        }
+        .loginBox .on-code{
+            margin-top: 24px;
+            width: 630px;
+            margin: 0 auto;
+            position: relative;
+            margin: 24px auto 59px;
+        }
+        .loginBox .getCode{
+            width: 228px;
+            background: #ffffff;
+            font-size: 30px;
+            color: #FF5252;
+            height: 104px;
+            line-height: 104px;
+            text-align: center;
+            border: none;
+            outline: none;
+            position: absolute;
+            right: 0;
+            z-index: 10;
+            top: 0;border-radius: 8px;
+        }
+        .loginBox .shuxian{
+            position: absolute;top: 30px;right: 229px;width: 3px;height: 43px;background: #D5D5D5;
+        }
+        .loginBox .btn{
+            width: 630px;
+            margin: 0 auto;
+            height: 104px;line-height: 104px;background: #FF5252;
+            border-radius: 8px;font-size: 36px;
+            color: #FFFFFF;text-align: center;
+        }
+        .loginBox .undertext{
+            width: 640px;
+            margin: 30px auto 0;
+            font-size: 28px;
+            color: #888888;
+            position: relative;
+            padding-left: 40px;
+            box-sizing: border-box;
+        }
+        .loginBox .undertext .blue{
+            color: #1a9ffc;
+        }
+        .loginBox .undertext input{
+            width: 192px;
+            height: 36px;
+            opacity: 0;
+            margin-right: 5px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .loginBox .undertext label {
+            position: absolute;
+            left: 5px;
+            top: 7px;
+            width: 28px;
+            height: 28px;
+            background: url("./imgs/checked.png") no-repeat center;
+            background-size: 100% 100%;
+
+        }
+
+        /*设置选中的input的样式*/
+        /* + 是兄弟选择器,获取选中后的label元素*/
+        .loginBox .undertext input:checked+label {
+            position: absolute;
+            left: 5px;
+            top: 7px;
+            width: 28px;
+            height: 28px;
+            background: url("./imgs/checkedd.png") no-repeat center; background-size: 100% 100%;
+        }
+        .loginBox .tishi{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            left: 0;
+            background: rgba(0,0,0,.7);
+            z-index: 999;
+        }
+        .loginBox .tishi .wrap{
+            background-color: #FFFFFF;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            -webkit-transform: translate(-50%,-50%);
+            font-size: 32px;
+            color: #535353;
+            width: 580px;
+            border-radius: 8px;
+            padding: 49px 28px 0;
+            box-sizing: border-box;
+        }
+        .loginBox .tishi .wrap p{
+            text-align: center;font-size: 34px;
+            color: #323232;width: 100%;margin-bottom: 55px;
+        }
+        .loginBox .tishi .wrap div{
+            font-size: 30px;
+            color: #FFFFFF;
+            background: #FF5252;
+            border-radius: 8px;
+            width: 515px;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+            margin: 0 auto;
+            margin-bottom: 32px;
+        }
+        .infoBox{
+            background: #f5f5f5;padding-top: 56px;width: 100%;padding-bottom: 32px;
+        }
+        .infoBox .head{
+            background: #fff;
+            height: 120px;
+            line-height: 120px;
+        }
+        .infoBox .head{
+            height: 120px;
+            line-height: 120px;
+            margin-bottom: 24px;position: relative;
+        }
+        .infoBox .head input{
+            opacity: 0;
+            position: absolute;width: 100%;height: 100%; top: 0px;
+            left: 0;
+        }
+        .infoBox .title{
+            font-size: 32px;
+            color: #969696;
+            width: 100%;
+            padding: 0 31px;
+            margin-bottom: 24px;
+            box-sizing: border-box;
+        }
+        .infoBox .title span{
+            background: url("./imgs/xing.png") no-repeat center;display: inline-block;width: 16px;height: 18px;background-size: 100%;
+        }
+        .infoBox .title p{
+            font-size: 28px;
+            color: #969696;position: relative;
+            top: 4px;
+        }
+        .right{
+            float: right;
+        }
+        .left{
+            float: left;font-size: 34px;
+            color: #323232;
+        }
+        .infoBox .right span{
+            display: inline-block;background: url("./imgs/arrow.png") no-repeat center;width: 14px;height: 26px;background-size: 100%;margin-left: 28px;
+        }
+        .infoBox .right p{
+            font-size: 34px;
+            color: #C8C8C8;
+            display: inline-block;
+        }
+        .infoBox .box{
+            padding: 0 31px;
+        }
+        .infoBox .box1{
+            padding: 0 31px;height: 104px;line-height: 104px;background: #fff;
+        }
+        .infoBox .city{
+            margin-bottom: 56px;
+        }
+        .infoBox .bor{
+            border-bottom: 1px solid #e1e1e1;
+        }
+        .c64{
+            color: #646464!important;
+        }
+        .marg24{
+            margin-bottom: 24px!important;
+        }
+        .infoBox .right input{
+            border: none;
+            outline: none;
+            text-align: right;
+            display: inline-block;width: 400px;height: 104px;
+            line-height: 34px;font-size: 34px;
+            color: #646464;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .infoBox .infobtn{
+            width: 686px;
+            height: 104px;background: #C8C8C8;border-radius: 8px;
+            font-size: 36px;color: #FFFFFF;line-height: 104px;text-align: center;margin: 32px auto 0;
+        }
+        .infoBox .wrapbox{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            left: 0;
+            background-color: rgba(0,0,0,.8);
+
+        }
+        .infoBox .shenfenz{
+            background-image: url('./imgs/shenfenz.png');
+            z-index: -1;
+            opacity: 0;
+            background-repeat: no-repeat;
+        }
+
+        .infoBox .jiashizz{
+            background-image: url('./imgs/jiashiz.png');
+            z-index: -1;
+            opacity: 0;
+            background-repeat: no-repeat;
+        }
+        .infoBox .touxiang{
+            background-image: url('./imgs/touxiang.png');
+            z-index: -1;
+            opacity: 0;
+            background-repeat: no-repeat;
+        }
+        .infoBox .xingshizz{
+            background-image: url('./imgs/xingshiz.png');
+            z-index: -1;
+            opacity: 0;
+            background-repeat: no-repeat;
+        }
+        .infoBox .renchehez{
+            background-image: url('./imgs/renchehez.png');
+            z-index: -1;
+            opacity: 0;
+            background-repeat: no-repeat;
+        }
+        .infoBox .wrapbox .quxiao{
+            position: absolute;left: 32px;bottom: 32px;width: 200px;height: 104px;line-height: 104px;text-align: center;font-size: 36px;color: #FF5252;background: #fff;border-radius: 8px;
+        }
+        .infoBox .wrapbox .shangchuan{
+            position: absolute;right: 32px;bottom: 32px;width: 456px;height: 104px;line-height: 104px;text-align: center;font-size: 36px;color: #fff;background: #FF5252;border-radius: 8px;
+        }
+        .infoBox .wrapbox .wrap{
+            background-color: #FFFFFF;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            -webkit-transform: translate(-50%,-50%);
+
+            width: 580px;
+            border-radius: 8px;
+            padding: 40px 32px 32px;
+            box-sizing: border-box;text-align: center;
+        }
+        .infoBox .wrapbox .wrap .tit{
+            font-size: 36px;color: #323232;margin-bottom: 26px;
+        }
+        .infoBox .wrapbox .wrap .text{
+            font-size: 30px;color: #323232;margin-bottom: 43px;padding: 0 5px;
+        }
+        .infoBox .wrapbox .wrap .jixu{
+            background: #FF5252;border-radius: 8px;height: 80px;line-height: 80px;font-size: 30px;
+            color: #FFFFFF;
+        }
+        .infoBox .shenfenT{
+            z-index: -1;opacity: 0;
+        }
+        .infoBox .picView{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            left: 0;
+            background: #F0F0F0;z-index: 10;box-sizing: border-box;padding: 39px 32px 32px;
+        }
+        .infoBox .picView .title{
+            font-size: 40px;color: #323232;text-align: center;margin-bottom: 24px;
+        }
+
+        .infoBox .picView .picbox{
+            background: #FFFFFF;width: 686px;height: 686px;text-align: center;line-height: 686px;overflow: hidden;
+        }
+        .infoBox .picView .picbox img{
+            /*width: 100%;*/
+            /*height: 516px;*/
+        }
+        .infoBox .picView .repai{
+            position: absolute;left: 32px;bottom: 32px;width: 320px;height: 104px;line-height: 104px;text-align: center;font-size: 36px;color: #FF5252;background: #fff;border-radius: 8px;border:1px solid #FF5252;box-sizing: border-box;
+        }
+        .infoBox .picView .sure{
+            position: absolute;right: 32px;bottom: 32px;width: 320px;height: 104px;line-height: 104px;text-align: center;font-size: 36px;color: #fff;background: #FF5252;border-radius: 8px;
+        }
+        .infoBox .wangyuez{
+            position: fixed;
+            top: 0;
+            width: 100%;
+            left: 0;
+            background: #f0f0f0;z-index: 10;padding-bottom: 48px;height: 100%;
+            overflow-y: scroll;
+        }
+        .infoBox .wangyuez .jia{
+            margin-bottom: 24px;background: #fff;padding: 48px 32px 50px;
+        }
+        .infoBox .wangyuez .yun{
+            background: #fff;padding: 48px 32px 50px;margin-bottom: 168px;
+        }
+        .infoBox .wangyuez.title{
+            font-size: 32px;color: #969696;margin-bottom: 24px;
+        }
+        .infoBox .wangyuez input{
+            opacity: 0;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            left: 0;
+        }
+        .infoBox .wangyuez .chuan{
+            width: 686px;height: 380px;position: relative;margin-bottom: 24px;
+        }
+        .infoBox .wangyuez .chuan img{
+            width: 100%;height: 100%
+        }
+        .loading_pic{width: 100%;
+            height: 380px;
+            position: absolute;z-index: 1;}
+        .loading_shadow{    width: 96px;
+            height: 96px;
+            background: #000;
+            opacity: 0.5;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -48px;
+            margin-top: -48px;border-radius: 8px;}
+        .loader{display: block;}
+        #loadyun1,#loadyun2,#loadjia1,#loadjia2,#loadyun3{
+            display: none;
+        }
+        .audit{
+            position: fixed;
+            top: 0;
+            width: 100%;
+            left: 0;
+            bottom: 0;
+            background: #fff;z-index: 1000;text-align: center;
+        }
+        .audit .img{
+            width: 100%;margin-bottom: 43px;margin-top: 165px;text-align: center;
+        }
+        .audit .img img{
+            width: 300px;
+            height: 300px;
+        }
+        .audit .title{
+            font-size: 34px;
+            color: #2E3245;margin-bottom: 15px;
+        }
+        .audit .text{
+            font-size: 20px;
+            color: #969696;line-height: 51px;
+        }
+        .audit .btn{
+            position: absolute;left: 30px;bottom: 32px;width: 690px;height: 104px;line-height: 104px;text-align: center;font-size: 36px;color: #fff;background: #FF5252;border-radius: 8px;
+        }
+        .secAA{
+            width: 400px;
+        }
+        .secAA .secA{
+            position: relative;
+            width: 143px;
+            height: 68px;
+            box-sizing: border-box;
+            margin-top: 20px;
+            /*background: url(./imgs/selectbor.png) no-repeat;*/
+            background-size: 100% 100%;
+            border: 1px solid #969696;
+            border-radius: 8px;
+        }
+        .secAA .secA .triangle{
+            width: 15px;height: 100%;position: absolute;right: 15px;
+            top: 0;display: block;
+            background: url("./imgs/Triangle.png") no-repeat center;
+            background-size: 15px 10px;
+        }
+        .secAA .secA .shuxian{
+            position: absolute;
+            top: 19px;
+            left: 56px;
+            width: 2px;
+            height: 27px;
+            background: #767676;
+        }
+        .infoBox .secAA .secA input{
+            border: none;
+            outline: none;
+            display: inline-block;
+            width: 131px;
+            height: 64px;
+            line-height: 64px;
+            font-size: 32px;
+            color: #646464;
+            position: relative;
+            top: -13px;
+            text-align: left;
+            letter-spacing: 10px;
+            padding-left: 9px;
+            box-sizing: border-box;
+            margin-left: 2px;
+        }
+        .infoBox .secAA .carNumclass{
+            width: 250px;float: right;
+        }
+        #headload{
+            display: none;width: 0;height: 0;position: absolute;top: 0;left: 0;
+        }
+        .headImg{
+            width: 90px;
+            height: 90px;
+            border-radius: 45px;
+        }
+        .wrapbox input{
+            position: absolute;
+            right: 32px;
+            bottom: 32px;
+            width: 456px;
+            height: 104px;
+            text-align: center;
+            opacity: 0;
+        }
+        .wangyuez .close{
+            position: fixed;left: 0;right: 0;height: 168px;
+            bottom: 0;background-image: linear-gradient(-180deg, rgba(255,255,255,0.66) 0%, #FFFFFF 85%);
+            padding: 32px;box-sizing: border-box;
+        }
+        .wangyuez .close div{
+            text-align: center;line-height: 104px;height: 104px;
+            background: #FF5252;
+            border-radius: 8px;font-size: 36px;
+            color: #FFFFFF;
+        }
+        .wrapbox .uploadProgress{
+            display: none;
+            left: 50%;
+            top: 50%;
+            margin-top: -424px;
+            width: 580px;
+            margin-left: -290px;
+        }
+        .infoBox .shenfenT input{
+            width: 516px;
+        }
+        .loginBox .xieyi{
+            position: fixed;left: 0;
+            top: 0px;height: 100%;width: 100%;background: #ffffff;z-index: 10;overflow-y: scroll;padding: 30px 30px 0;
+            box-sizing: border-box;
+        }
+        .loginBox .xieyi .tit{
+            font-size: 40px;
+            color: #323232;text-align: center;margin-bottom: 16px;
+        }
+        .loginBox .xieyi .content{
+            font-size: 23px;
+            color: #646464;
+        }
+        .loginBox .xieyi .content span{
+            font-weight: 600;
+        }
+        .loginBox .xieyi .tit2{
+            font-size: 32px;
+            color: #FF5252;text-align: left;margin-bottom: 7px;margin-top: 29px;
+        }
+        .loginBox .xieyi ol li{
+            color: #646464;font-size: 23px;
+
+        }
+        .loginBox .xieyi ol{
+            padding-left: 30px;
+        }
+        .loginBox .xieyi .jieshuyu{
+            margin-top: 14px; color: #646464;font-size: 23px;font-weight: 600;margin-bottom: 120px;
+        }
+        .loginBox .xieyi .close{
+            width: 100%;
+            text-align: center;
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: linear-gradient(-180deg, rgba(255,255,255,0.66) 0%, #FFFFFF 85%);
+            box-sizing: border-box;
+        }
+        .loginBox .xieyi .close div{
+            margin: 20px 0;
+        }
+        .loginBox .xieyi .close div img{
+            width: 72px;
+            height: 72px;
+        }
+        #shenfenp.done,#jiaship.done,#xingship.done,#renchep.done,#wangyuep.done{
+            /*background: url(./imgs/done.png) no-repeat 0 center;*/
+            padding-left: 40px;
+        }
+        #headp.done{
+            color:#646464;
+        }
+        .infoBox .donebg{
+            background: #FF5252;!important;
+        }
+
+        .table { display: table; width: 100%; height: 100%;}
+        .table_cell { display: table-cell; vertical-align: middle;}
+        .alert { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,.5); z-index: 998;}
+        .alertBox { width: 580px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 5px 0;
+            text-align: center;
+            color: #666;
+            margin: 0 auto;}
+        .alertBox .alertCont {padding: 0 20px; }
+        .alertTit {     line-height: 90px;
+            font-size: 36px;
+            color: #323232;}
+        .alertCont {
+            text-align: left;}
+        .alertCont p{
+            font-size: 26px;
+            color: #323232;
+            line-height: 32px;
+            margin-bottom: 8px;}
+        .alertBtn {
+            background: #FF5252;
+            border-radius: 8px;
+            line-height: 80px;
+            font-size: 30px;
+            color: #FFFFFF;
+            width: 515px;
+            margin: 32px auto;}
+
+        .timecar{
+            position: fixed;top: 0px;left: 0px;bottom: 0px;right: 0px;background: url("./imgs/timecar.png") no-repeat;background-size: 100%;background-color: rgba(0,0,0,.7);
+        }
+        .timeren{
+            position: fixed;top: 0px;left: 0px;bottom: 0px;right: 0px;background: url("./imgs/timeren.png") no-repeat;background-size: 100%;background-color: rgba(0,0,0,.7);
+        }
+        .timeren div,.timecar div{
+            color: #fff;
+            font-size: 28px;
+            text-align: center;
+            margin-top: 556px;
+        }
+        .preloading{
+            z-index: 999;
+            position: fixed;left: 0%;top: 0%;bottom: 0%;right: 0%;width: 100%;height: 100%;
+        }
+        .preloading .loading_shadow{width:100%;height:100%;background: #fff;opacity: 1;position: absolute;left: 0;top:0;color: #323232;
+            font-size: 36px;
+            text-align: center;
+            padding-top: 50%;
+             margin-left: 0px;
+             margin-top: 0px;
+        }
+        .preloading .line-spin-fade-loader > div{
+            background-color: #000;
+        }
+        .infoBox .wangyuez .title{
+            padding: 0px;
+        }
+
+    </style>
+    <style>
+        .mbsc-ios7 .dwb{
+            font-size: 34px;!important;
+            color: #323232;!important;
+            padding: 27px 10px 0 10px;
+        }
+        .mbsc-ios7 .dwwr{
+            padding-top: 70px;
+        }
+        .area_btn{
+            font-size: 30px;
+        }
+        /*.mbsc-ios7 .dwo{*/
+        /*background: rgba(0,0,0,.7);*/
+        /*}*/
+        .mbsc-ios7 .dwbc{
+            border: none;
+        }
+        .dwc{
+            display: block;
+        }
+        .mbsc-ios7 .dwhl .dwwc{
+            font-size: 34px;
+        }
+        .mbsc-ios7 .dw-sel{
+            height: 51px;
+            line-height: 51px;
+        }
+        .dw-day{
+            display: none;
+        }
+        .mPicker-confirm, .mPicker-cancel{
+            font-size: 34px;
+            color: #323232;
+        }
+        .mPicker-confirm{
+            border: none;background: transparent;
+        }
+        .mPicker-main{
+            background: #fff;
+        }
+        .mPicker-content li{
+            font-size: 34px;
+            color: #323232;
+        }
+        .mPicker-header{
+            border:none;font-size: 34px;
+        }
+        .mPicker-shadow{
+            display: none;
+        }
+        .mPicker-active-box{
+            border-top: 1px solid #E1E1E1;
+            border-bottom: 1px solid #E1E1E1;
+        }
+        .mPicker-content{
+            margin-top: 40px;
+        }
+        .mPicker-header{
+            margin-top: 25px;
+        }
+        .mPicker-confirm{
+            text-align: right;
+            padding-right: 37px;
+        }
+        .mPicker-cancel{
+            text-align: left;
+            padding-left: 37px;
+        }
+        .dwb-c{
+            margin-left: 37px;
+        }
+        .dwb-s{
+            margin-right: 37px;
+        }
+        .mPicker-content li{
+            height: 70px;
+            line-height: 70px;
+        }
+        .area_btn_box{
+            border-bottom: none;
+        }
+        .area_btn_box:before, .area_btn_box:after{
+            height: 0px;
+        }
+        .mPicker-content{
+            -webkit-mask: -webkit-gradient(linear, 0% 50%, 0% 100%, from(#debb47), to(rgba(36, 142, 36, 0)));
+            -webkit-mask: -webkit-linear-gradient(top, #debb47 50%, rgba(36, 142, 36, 0))
+        }
+    </style>
+</head>
+<body>
+<div id="app" v-cloak>
+    <router-view></router-view>
+</div>
+<template id="login">
+    <div class="loginBox">
+        <div class="on-input"><input name="number" type="tel" v-model="telNumber" placeholder="请输入手机号" maxlength="11"></div>
+        <div class="on-code clearfix">
+            <p class="on-input on-input-code">
+                <input name="code" type="tel" v-model="codeNumber" placeholder="请输入验证码" maxlength="4">
+            </p>
+            <input class="getCode login-getcode get-msgcode" value="获取验证码" type="button" @click="getCode"></input>
+            <div class="shuxian"></div>
+        </div>
+        <div class="btn" @click="sureHandle">加入易到</div>
+        <p class="undertext">
+            <input type="checkbox" id="item1" v-model="isaggree"><label for="item1"></label>
+            阅读并接受 <span class="blue" @click="showxieyi">《易到网约车平台驾驶员接入协议》</span>
+        </p>
+        <div class="tishi stopPop" v-if="tishi">
+            <div class="wrap">
+                <p>请阅读并同意《易到网约车平台驾驶员接入协议》</p>
+                <div @click="closetishi">确定</div>
+            </div>
+        </div>
+        <div class="preloading" v-show="preloadingInTime">
+            <div class="loading_shadow loading_shaowInTime"></div>
+            <div class="loader loaderInTime">
+                <div class="loader-inner line-spin-fade-loader">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <div class="xieyi" v-if="xieyi">
+            <p class="tit">网约车平台驾驶员接入协议</p>
+            <p class="content">本《网约车平台驾驶员接入协议》由北京东方车云信息技术有限公司（www.yongche.com）制定并公布，并不时修订且公示，由以下双方共同信守：<br><span>甲方</span>：北京东方车云信息技术有限公司，遵照中华人民共和国法律法规注册，拥有易到平台，提供网约车信息服务（以下简称“甲方”或“易到”）<br><span>乙方</span>：驾驶员，须是有合法第三方劳务派遣手续且在易到平台成功注册并向甲方用户（乘客）提供线下运输的驾驶员（以下简称“乙方”或“驾驶员”）<br>根据《网络预约出租汽车经营服务管理暂行办法》及相关法律法规的规定，甲乙双方就乙方在甲方网约车信息服务平台即易到平台，注册并向甲方用户提供线下运输服务，由甲方为乙方提供服务达成如下协议：</p>
+            <p class="tit2">第一条 合作内容</p>
+            <ol>
+                <li>甲方为乙方有偿提供网约车信息平台服务以及必要的后台管理系统所需的用户名和密码，同时以推送或其他形式帮助乙方获取网约车订单或出租车订单。</li>
+                <li>乙方为有合法第三方劳务派遣手续的驾驶员，使用由汽车租赁公司或出租车公司提供的有合法资质的车辆，通过甲方的平台获取网约车订单或出租车订单，并在线下向平台用户提供用车服务。</li>
+                <li>甲方向乙方推送订单，并不构成工作指令，乙方有权选择是否提供劳务，以及何时何地提供劳务，即乙方完全自主决定是否抢单、接单。</li>
+            </ol>
+            <p class="tit2">第二条 合作期间</p>
+            <ol>
+                <li>乙方同意接单或抢单成功之时起至乘客到达目的地下车期间为甲乙双方合作期间。</li>
+                <li>本条第一款约定的期间之外，乙方驾驶车辆行驶，该驾驶行为属于乙方的个人行为或乙方所属第三方公司的职务行为，与本合作无关</li>
+            </ol>
+            <p class="tit2">第三条 甲方的权利义务</p>
+            <ol>
+                <li>按照协议约定，保证网约车服务平台的正常运行，同时尽可能在现有技术条件下对平台进行系统改造、功能提升和个性化修改等工作。</li>
+                <li>如遇甲方原因造成平台服务故障时，甲方应及时排除故障，并在第一时间内恢复平台的运行。</li>
+                <li>甲方有权根据有利于乘客体验及平台发展的原则进行订单推送，并就其提供的服务按约定收取费用。</li>
+                <li>甲方有权对乙方向平台用户提供的服务进行监督和记录。</li>
+                <li>由于乙方过错给第三方造成损害，由乙方承担相应的赔偿责任，甲方有权采取冻结/扣除未结费用、列入黑名单、解除合作关系等措施。如甲方基于与第三方的约定而先行予以第三方赔偿，或因法律、法规规定或法院、仲裁机关、行政机关的裁决被要求与乙方承担连带赔偿责任的，在作出赔偿后有权向按本协议约定应承担责任的乙方追偿。</li>
+                <li>甲方有权按照乙方所属租赁公司、劳务公司要求在甲方平台对乙方所属公司进行调整。</li>
+                <li>依据相关法律、法规、政策应由甲方享有的其他权利或承担的其他义务。</li>
+            </ol>
+            <p class="tit2">第四条 乙方的权利义务</p>
+            <ol>
+                <li>按照协议约定，获取相应的信息平台服务。</li>
+                <li>乙方应保证已取得政府主管部门认可的网约车驾驶员或出租车驾驶员和所驾驶车辆的资质证照，并将相关信息真实、完整地提供给甲方。</li>
+                <li>遵守易到平台和易到用车网公示的相关管理规范及流程。</li>
+                <li>遵守道路交通安全相关法律法规，不超速、不超员、不疲劳驾驶、不接打手机、不关闭动态监控系统，确保乘客及自身生命安全。</li>
+                <li>乙方应要求乘客系好安全带，并在乘客乘车前和下车时进行行车安全提示。</li>
+                <li>若甲方对本协议和相关管理规范及流程（本协议和相关管理规范及流程合称“相关条款”）作出任何修改，将由甲方及时将修订后的相关条款在易到用车网或易到平台上及时公示。该等公示即视为对乙方进行了通知。乙方如果不同意甲方对相关条款所做的修改，乙方有权停止使用易到平台的信息服务。如果乙方继续使用易到平台的信息服务，则视为乙方接受甲方对相关条款所做的修改。</li>
+                <li>乙方确认，甲方仅为网约车信息服务平台，乙方在车辆运营过程中所发生的交通事故由乙方或其租赁公司或其劳务公司承担一切责任，与甲方无关。</li>
+                <li>乙方应当安全驾驶，由于疲劳驾驶或者自身疾病引起的伤亡与甲方无关。</li>
+                <li>依据相关法律、法规、政策应由乙方享有的其他权利或承担的其他义务。</li>
+            </ol>
+            <p class="tit2">第五条 收费标准和结算方式</p>
+            <ol>
+                <li>甲方原则上按照订单金额的百分比收取信息服务费。</li>
+                <li>具体收费标准和结算方式按照甲方对外公布的结算方案执行，如乙方不同意甲方对外公布的方案，乙方应停止使用甲方的服务。如乙方继续使用甲方服务，则视为乙方接受该结算方案。</li>
+            </ol>
+            <p class="tit2">第六条 通知</p>
+            <ol>
+                <li>本协议项下甲方对于乙方所有的通知均可通过易到平台的网页公告、电子邮件、手机短信或常规的信件传送等方式进行；甲方可任意选择其中一种方式通知乙方，该通知于发送之日视为已送达乙方，乙方知悉并接受通知之内容。</li>
+            </ol>
+            <p class="tit2">第七条 适用法律与争议的解决</p>
+            <ol>
+                <li>除本协议另有约定外，甲乙双方对本协议或本协议之履行产生的一切争议，均应首先通过友好协商的方式解决。如不能协商解决，应由甲方所在地有管辖权的人民法院管辖。</li>
+            </ol>
+            <p class="tit2">第八条 协议的生效</p>
+            <ol>
+                <li>本协议自公布之日起生效。本协议如有修改，则直接适用修改后的协议，除非双方一致同意按照原协议约定执行。</li>
+            </ol>
+            <p class="jieshuyu">甲乙双方在此确认并声明，其已认真阅读以上协议内容并充分理解其含义，并同意本协议中之内容约定，并进一步同意，乙方在甲方网约车信息服务平台注册即视为接受本协议的约束。</p>
+            <div class="close" >
+                <div><img src="./imgs/xieyiclose.png" alt="" @click="closexieyi"></div>
+            </div>
+        </div>
+    </div>
+</template>
+<template id="drawinfo">
+    <div class="infoBox">
+        <div class="title">头像信息</div>
+        <div class="head box clearfix">
+            <img src="./imgs/head.png" alt="" class="headImg head1">
+            <div class="right toseepics"><p id="headp" @click="totouxiang">上传头像</p><span></span></div>
+        </div>
+        <div class="box1 clearfix city">
+            <div class="left">服务城市</div>
+            <div class="right">
+                <select name="city" id="personal" v-model="personalVal">
+                    <option v-for="cit in cityList" :value="cit.short" >{{cit.city}}</option>
+                </select>
+                <span></span>
+            </div>
+        </div>
+        <div class="title">个人信息 <span></span> <p class="right">懒得手填，先上传照片识别试试</p></div>
+        <div class="box1 clearfix bor">
+            <div class="left">身份证照片</div>
+            <div class="right toseepics"><p class="c64" @click="toshenfen" id="shenfenp">请上传</p><span></span></div>
+        </div>
+        <div class="box1 clearfix bor">
+            <div class="left">驾驶证照片</div>
+            <div class="right toseepics"><p class="c64" @click="tojiashi" id="jiaship">请上传</p><span></span></div>
+        </div>
+        <div class="box1 clearfix bor">
+            <div class="left">真实姓名</div>
+            <div class="right"><input type="text" placeholder="请输入您的姓名" v-model="registerName" id="regName" maxlength="50"></div>
+        </div>
+        <div class="box1 clearfix bor">
+            <div class="left">身份证号</div>
+            <div class="right"><input type="text" placeholder="请输入您的身份证号" v-model="id_card" id="CardId" maxlength="18"></div>
+        </div>
+        <div class="box1 clearfix city">
+            <div class="left">初次领取驾照</div>
+            <div class="right">
+                <input type="text" name="license_start_date" v-model="license_time" id="select_time" placeholder="请选择驾照领取时间" >
+                <span></span>
+            </div>
+        </div>
+        <div class="title">行驶证信息 <span></span> <p class="right">懒得手填，先上传照片识别试试</p></div>
+        <div class="box1 clearfix bor">
+            <div class="left">行驶证照片</div>
+            <div class="right toseepics"><p class="c64" @click="toxingshi" id="xingship">请上传</p><span></span></div>
+        </div>
+        <div class="box1 clearfix bor">
+            <div class="left">车牌号</div>
+            <div class="right secAA">
+                <input type="text" placeholder="请输入车牌号" v-model="carNum" class="carNumclass" maxlength="6">
+                <div class="secA">
+                    <input type="text" placeholder="" class="select-value2" v-model="carNumSelect">
+                    <div class="shuxian"></div>
+                    <div class="triangle"></div>
+                </div>
+            </div>
+        </div>
+        <div class="box1 clearfix bor">
+            <div class="left">车型</div>
+            <div class="right">
+                <input id="carbrand" type="text" readonly="" placeholder="请选择车型和颜色" v-model = "carbrand"/>
+                <span></span>
+            </div>
+        </div>
+        <div class="box1 clearfix bor">
+            <div class="left">车辆所有人</div>
+            <div class="right"><input type="text" placeholder="请输入车主姓名" v-model="chezhuName" id="carOwnerc" maxlength="50"></div>
+        </div>
+        <div class="box1 clearfix marg24">
+            <div class="left">车辆注册日期</div>
+            <div class="right">
+                <input type="text" name="" v-model="car_time" id="car_time" placeholder="请选择车辆注册日期" >
+                <span></span>
+            </div>
+        </div>
+        <div class="box1 clearfix bor">
+            <div class="left">人车合照</div>
+            <div class="right toseepics"><p class="c64" @click="torenche" id="renchep">请上传</p><span></span></div>
+        </div>
+        <div class="box1 clearfix" >
+            <div class="left">网约车证件照</div>
+            <div class="right"><p class="c64" @click="towangyue" id="wangyuep">请上传</p><span></span></div>
+        </div>
+        <div class="infobtn" @click="tijiao" :class="{'donebg':ifdone}">提交</div>
+        <div class="shenfenz wrapbox stopPop">
+            <div class="quxiao" @click="qxshenfenz">取消</div>
+            <div class="shangchuan">上传</div>
+            <input type="file" id="shenfenz1" name="avatar" accept="image/*">
+            <input type="hidden" name="shenfenz_img_id" id="shenfenz_img_id" v-model="identityImgId">
+            <div class="loading_pic uploadProgress">
+                <div class="loading_shadow"></div>
+                <div class="loader">
+                    <div class="loader-inner line-spin-fade-loader">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="jiashizz wrapbox stopPop">
+            <div class="quxiao" @click="qxjiashiz">取消</div>
+            <div class="shangchuan">上传</div>
+            <input type="file" id="jiashiz" name="avatar" accept="image/*" data-tan="jiashizz" data-p="jiaship">
+            <input type="hidden" name="jiashiz_img_id" id="jiashiz_img_id" v-model="driverLicenseImgId">
+            <div class="loading_pic uploadProgress">
+                <div class="loading_shadow"></div>
+                <div class="loader">
+                    <div class="loader-inner line-spin-fade-loader">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="xingshizz wrapbox stopPop">
+            <div class="quxiao" @click="qxxingshiz">取消</div>
+            <div class="shangchuan">上传</div>
+            <input type="file" id="xingshiz" name="avatar" accept="image/*" data-tan="xingshizz" data-p="xingship">
+            <input type="hidden" name="xingshiz_img_id" id="xingshiz_img_id" v-model="carLicenseImgId">
+            <div class="loading_pic uploadProgress">
+                <div class="loading_shadow"></div>
+                <div class="loader">
+                    <div class="loader-inner line-spin-fade-loader">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="renchehez wrapbox stopPop">
+            <div class="quxiao" @click="qxrenchez">取消</div>
+            <div class="shangchuan">上传</div>
+            <input type="file" id="renchez" name="avatar" accept="image/*" data-tan="renchehez" data-p="renchep">
+            <input type="hidden" name="renchez_img_id" id="renchez_img_id" v-model="driverImgId">
+            <div class="loading_pic uploadProgress">
+                <div class="loading_shadow"></div>
+                <div class="loader">
+                    <div class="loader-inner line-spin-fade-loader">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wrapbox shenfenT stopPop">
+            <div class="wrap">
+                <p class="tit">正面照已上传成功</p>
+                <p class="text">正面照上传成功，请您继续拍身份证背面照</p>
+                <div class="jixu">继续拍照</div>
+                <input type="file" id="shenfenz2" name="avatar" accept="image/*" data-tan="shenfenz" data-p="shenfenp">
+                <input type="hidden" name="shenfenz_back_img_id" id="shenfenz_back_img_id" v-model="identityBackImgId">
+                <div class="loading_pic uploadProgress">
+                    <div class="loading_shadow"></div>
+                    <div class="loader">
+                        <div class="loader-inner line-spin-fade-loader">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="touxiang wrapbox stopPop">
+            <div class="quxiao" @click="qxtouxiang">取消</div>
+            <div class="shangchuan">上传</div>
+            <input type="file" id="head1" name="avatar" accept="image/*" data-p="headp" data-tan="touxiang">
+            <input type="hidden" name="head_img_id" id="head_img_id" v-model="photoId">
+            <div class="loading_pic uploadProgress">
+                <div class="loading_shadow"></div>
+                <div class="loader">
+                    <div class="loader-inner line-spin-fade-loader">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="picView stopPop" v-show="xingship">
+            <p class="title">行驶证照片</p>
+            <div class="picbox"><img src="" alt="" class="xingshiz"></div>
+            <div class="repai" @click="toxingshi">重新上传</div>
+            <div class="sure" @click="surexingshi">确认</div>
+        </div>
+        <div class="picView stopPop" v-show="jiaship">
+            <p class="title">驾驶证照片</p>
+            <div class="picbox"><img src="" alt="" class="jiashiz"></div>
+            <div class="repai" @click="tojiashi">重新上传</div>
+            <div class="sure" @click="surejiashi">确认</div>
+        </div>
+        <div class="picView stopPop" v-show="cherenp">
+            <p class="title">人车合照</p>
+            <div class="picbox"><img src="" alt="" class="renchez"></div>
+            <div class="repai" @click="torenche">重新上传</div>
+            <div class="sure" @click="surecheren">确认</div>
+        </div>
+        <div class="picView stopPop" v-show="touxiangp">
+            <p class="title">头像照片</p>
+            <div class="picbox"><img src="" alt="" class="head1 head2" style="border-radius: 0"></div>
+            <div class="repai" @click="totouxiang">重新上传</div>
+            <div class="sure" @click="surehead">确认</div>
+        </div>
+        <div class="picView shenfenp stopPop" style="z-index: -1;opacity: 0">
+            <p class="title">身份证照片</p>
+            <div class='swiper-container'>
+                <div class='swiper-wrapper' >
+                    <div class="swiper-slide">
+                        <img src=""  class="shenfenz1" >
+                    </div>
+                    <div class="swiper-slide">
+                        <img src=""  class="shenfenz2" >
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <div class="repai" @click="toshenfen">重新上传</div>
+            <div class="sure" @click="sureshenfen">确认</div>
+        </div>
+        <div class="wangyuez" v-show="wangyuez">
+            <div class="jia">
+                <p class="title">网络预约出租汽车驾驶证</p>
+                <div class="chuan">
+                    <div class="loading_pic uploadProgress" id= "loadjia1">
+                        <div class="loading_shadow"></div>
+                        <div class="loader">
+                            <div class="loader-inner line-spin-fade-loader">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="file" id="fileElem1" name="avatar" accept="image/*">
+                    <input type="hidden" name="jia_img_id" id="jia_img_id" v-model="networkDriverImg1">
+                    <img class="img fileElem1"  src="./imgs/jia1.png" >
+                </div>
+                <div class="chuan">
+                    <div class="loading_pic uploadProgress" id= "loadjia2">
+                        <div class="loading_shadow"></div>
+                        <div class="loader">
+                            <div class="loader-inner line-spin-fade-loader">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="file" id="fileElem2" name="avatar" accept="image/*">
+                    <input type="hidden" name="jia_back_img_id" id="jia_back_img_id" v-model="networkDriverImg2">
+                    <img class="img fileElem2"  src="./imgs/jia2.png">
+                </div>
+            </div>
+            <div class="yun">
+                <p class="title">网络预约出租汽车运输证</p>
+                <div class="chuan">
+                    <div class="loading_pic uploadProgress" id= "loadyun1">
+                        <div class="loading_shadow"></div>
+                        <div class="loader">
+                            <div class="loader-inner line-spin-fade-loader">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="file" id="fileElem3" name="avatar" accept="image/*">
+                    <input type="hidden" name="yun_img_id" id="yun_img_id" v-model="networkTransportImg1">
+                    <img class="img fileElem3"  src="./imgs/yun1.png">
+                </div>
+                <div class="chuan">
+                    <div class="loading_pic uploadProgress" id= "loadyun2">
+                        <div class="loading_shadow"></div>
+                        <div class="loader">
+                            <div class="loader-inner line-spin-fade-loader">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="file" id="fileElem4" name="avatar" accept="image/*">
+                    <input type="hidden" name="yun_back_img_id" id="yun_back_img_id" v-model="networkTransportImg2">
+                    <img class="img fileElem4"  src="./imgs/yun2.png">
+                </div>
+                <div class="chuan">
+                    <div class="loading_pic uploadProgress" id= "loadyun3">
+                        <div class="loading_shadow"></div>
+                        <div class="loader">
+                            <div class="loader-inner line-spin-fade-loader">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="file" id="fileElem5" name="avatar" accept="image/*">
+                    <input type="hidden" name="yun_backed_img_id" id="yun_backed_img_id" v-model="networkTransportImg3">
+                    <img class="img fileElem5"  src="./imgs/yun3.png">
+                </div>
+            </div>
+            <div class="close"><div @click="closewangyue">确认</div></div>
+        </div>
+        <div class="audit stopPop" v-if="audiF">
+            <div class="img"><img src="./imgs/fail.png" alt=""></div>
+            <p class="title">很遗憾，您的审核未通过</p>
+            <div style="height: 550px;overflow-y: scroll;">
+            <p class="text" style="color: #FF3246;" v-for="value in auditFailReason" >{{value}}</p>
+            </div>
+            <div class="btn" @click="tofix">马上修改</div>
+        </div>
+        <div class="alert table alert1 stopPop" v-show="wenzhoumsg">
+            <div class="table_cell">
+                <div class="alertBox">
+                    <div class="alertTit">温馨提示</div>
+                    <div class="alertCont"><p>1、男性21-60周岁，女性21-55周岁，无吸毒、暴力犯罪等记录</p><p>2、{{jiatime}}年及以上驾龄，无酒驾、毒驾严重交通违规事故</p><p>3、裸车价7万及以上</p><p>4、车辆使用年限 ≤ {{cartime}}年</p><p>5、5-7座小型汽车，车况良好，无改装，有正常保险</p><p>6、驾驶车辆必须为注册车辆，自有车辆或获得车主许可，驾驶证必须是本人且在有效期内，C2驾驶证及以上</p></div>
+                    <div class="alertBtn" @click="closewenzhoumsg">我知道了</div>
+                </div>
+            </div>
+        </div>
+        <div class="timecar" v-show="timecar">
+            <div class="text">
+                <p>请选择框内日期</p>
+                <p>请确保车辆注册时间在{{cartime}}年内</p>
+            </div>
+        </div>
+        <div class="timeren" v-show="timeren">
+            <div class="text">
+                <p>请选择框内日期</p>
+                <p>请确保驾照领取时间超过{{jiatime}}年</p>
+            </div>
+        </div>
+        <div class="preloading" v-show="preloading">
+            <div class="loading_shadow"></div>
+            <div class="loader">
+                <div class="loader-inner line-spin-fade-loader">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<iframe style="height: 0;display: none" frameborder="0" id="share_iframe"></iframe>
+<!--<script src="//i2.Yongche.name/s/js/201801/vue.js?1478153218"></script>-->
+<!--<script src="//i3.Yongche.name/s/js/201801/vue-router.js?1478153218"></script>-->
+<!--<script src="//i2.Yongche.name/s/js/201801/jquery-2.0.0.min.js?1478153218"></script>-->
+<!--<script src="https://i2.yongche.name/s/js/201712/swiper.min.js?1478153218"></script>-->
+<script src="./lib/vue.min.js"></script>
+<script src="./lib/vue-router.min.js"></script>
+<script src="./lib/jquery.js"></script>
+<script src="./lib/swiper.js"></script>
+<script src="./lib/LArea.min.js"></script>
+<script src="./lib/mobiscroll.all.src.js"></script>
+<script src="./lib/mpick.js"></script>
+<script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=74f1df68a56ecbbdc6be8c1f3b6de523"></script>
+<script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    function ajaxShare(obj) {
+        // 分享变量设置
+        var _protocolLink = "yongche://share?";
+        var _protocolLinkFriend = "yongche://shareToFriend?";
+        var _protocolLinkTimeline = "yongche://shareToTimeline?";
+
+        // 分享地址
+        //var query = encodeURIComponent("&language="+obj.activity_language+"&sendName="+obj.sendName+"&sendMoney="+obj.sendMoney+"&sendIphone="+obj.sendIphone+"&headImg="+obj.headImg);
+        var shareRead_link = encodeURIComponent(obj.url);
+
+        // 分享的图片
+        var shareRead_pics = encodeURIComponent("https://i1.yongche.Name/media/g2/M03/00/1D/rBEBJVdngbqIagETAABqiclQEwcAAALoQP6a7IAAGqh129.png");
+
+        // 分享的标题
+        var shareRead_title = encodeURIComponent(obj.title);
+        // 分享的内容
+        var shareRead_content = encodeURIComponent(obj.description);
+        // 分享的需要生成二维码地址
+        var shareRead_codeUrl = encodeURIComponent("://m.yongche.com");
+        var shareRead_sourceType = 42; //1-截图分享 42-图文分享
+        var shareRead_callback = "share_callback";
+
+        var Tools = {
+            shareThisPage: function () {
+                var _str = "link=" + shareRead_link + "&pics=" + shareRead_pics + "&title=" + shareRead_title + "&content=" + shareRead_content + "&sourceType=" + shareRead_sourceType + "&callback=" + shareRead_callback + "&codeUrl=" + shareRead_codeUrl;
+                var _tmpOpenLink = _protocolLink + _str;
+                window.location.href = _tmpOpenLink;
+            },
+            shareThisPageToFriend: function () {
+                var _str = "link=" + shareRead_link + "&pics=" + shareRead_pics + "&title=" + shareRead_title + "&content=" + shareRead_content + "&sourceType=" + shareRead_sourceType + "&callback=" + shareRead_callback + "&codeUrl=" + shareRead_codeUrl;
+                var _tmpOpenLink = _protocolLinkFriend + _str;
+                window.location.href = _tmpOpenLink;
+            },
+            shareThisPageToTimeline: function () {
+                var _str = "link=" + shareRead_link + "&pics=" + shareRead_pics + "&title=" + shareRead_title + "&content=" + shareRead_content + "&sourceType=" + shareRead_sourceType + "&callback=" + shareRead_callback + "&codeUrl=" + shareRead_codeUrl;
+                var _tmpOpenLink = _protocolLinkTimeline + _str;
+                window.location.href = _tmppenLOink;
+            }
+        };
+        var _str = "link=" + shareRead_link + "&pics=" + shareRead_pics + "&title=" + shareRead_title + "&content=" + shareRead_content + "&sourceType=" + shareRead_sourceType + "&from=iframe&callback=" + shareRead_callback;
+        var _tmpOpenLink = _protocolLink + _str;
+        document.getElementById("share_iframe").src = _tmpOpenLink;
+//        $('.share').delegate('.share-btn', 'click', function() {
+//            ga('send', 'event', 'share_button', 'click', 'shareClickChristmas');
+//            Tools.shareThisPage();
+//        });
+//        document.getElementById("share-btn").addEventListener("click", function(){
+//            ga('send', 'event', 'share_button', 'click', 'shareClickChristmas');
+//            Tools.shareThisPage();
+//        });
+
+    }
+</script>
+<script>
+    (function ($) {
+        $.fn.wxShare = function (oParam) {
+            var shareImg = oParam.shareImg;
+            var shareTitle = oParam.shareTitle;
+            var shareContent = oParam.shareContent;
+            var shareUrl = oParam.shareUrl;
+            $.ajax({
+                url: "//weixin.yongche.com/wechat/jssdk/config?url=" + encodeURIComponent(window.location.href),
+                method: 'get',
+                dataType: 'jsonp'
+            }).done(function (data) {
+                console.log(data);
+                if (data.code == 200) {
+                    wx_share(data.result);
+                }
+            }).fail(function (error) {
+                //console.log(error)
+            });
+
+            function wx_share(jsData) {
+                wx.config({
+                    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                    appId: jsData.appId, // 必填，公众号的唯一标识
+                    timestamp: jsData.timestamp, // 必填，生成签名的时间戳
+                    nonceStr: jsData.nonceStr, // 必填，生成签名的随机串
+                    signature: jsData.signature,// 必填，签名，见附录1
+                    jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'onMenuShareQQ', 'onMenuShareWeibo'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                });
+                wx.ready(function () {
+                    var shareData =
+                        {
+                            link: shareUrl,
+                            imgUrl: shareImg,
+                            title: shareTitle,
+                            desc: shareContent,
+                            type: '', // 分享类型,music、video或link，不填默认为link
+                            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                            success: function () {
+                                // 用户确认分享后执行的回调函数
+                            },
+                            cancel: function () {
+                                // 用户取消分享后执行的回调函数
+                            }
+                        };
+                    wx.onMenuShareAppMessage(shareData);
+                    wx.onMenuShareTimeline(shareData);
+                    wx.onMenuShareQQ(shareData);
+                    //alert('ok');
+                });
+            }
+        }
+
+        window.wxShareFn = function (oParam) {
+            $.fn.wxShare(oParam);
+        }
+
+    })(jQuery);
+</script>
+<script type="text/javascript">
+    rootScope={};
+    function faileHint(dom,errorMsg) {
+        clearTimeout(timer);
+        $("#msg").remove();
+        var html = '<div id="msg" style="position:fixed;width:100%;top:50%;left: 50%;height:80px;line-height:80px;margin-top:-15px; z-index:99999999;"><p style="background:#000;opacity:0.8;color:#fff;text-align:center;padding:10px 50px;margin:0 auto;font-size:30px;border-radius:8px;position: absolute;transform: translateX(-50%);">' + errorMsg + '</p></div>'
+        dom.append(html);
+        var timer = setTimeout(function () {
+            $("#msg").hide();
+        }, 2000);
+    };
+    var ajaxUrl = config.app_api_host;
+    if (/(Android)/i.test(navigator.userAgent)) {  //判断Android
+        $('input[type=file]').attr({"capture":"camera"});
+    }
+</script>
+<script>
+    var level3 = (function(){
+        var str1 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        var str2 = '京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼';
+        return makeData(str2,makeData(str1));
+    })();
+    function makeData(str,data){
+        var arr = new Array();
+        var i = 0;
+        while(str[i]){
+            !data?arr.push({name:str[i]}):arr.push({name:str[i],value:i+1,child:data});
+            i++;
+        }
+        return arr;
+    }
+</script>
+<script>
+    window.onload = function () {
+        function toexeshare() {
+            var strHref=window.location.href;
+            var strHrefShare=strHref.substr(0,strHref.indexOf('#'));
+            //      微信二次分享
+            var wShare = {};
+            wShare.shareImg = 'https://i1.yongche.Name/media/g2/M03/00/1D/rBEBJVdngbqIagETAABqiclQEwcAAALoQP6a7IAAGqh129.png';
+            wShare.shareTitle = '易到专车 车主招募';
+            wShare.shareContent = '始于专车 忠于易到';
+            wShare.shareUrl = strHrefShare;
+            wxShareFn(wShare);
+            if (window.navigator.userAgent.indexOf("YongChe")> -1){
+                ajaxShare({
+                    url: strHrefShare,//TODO
+                    title: '易到专车 车主招募',
+                    description: '始于专车 忠于易到'
+                });
+            }
+        }
+        function stop(e){
+            e.preventDefault();
+        }
+        function GetQueryString(name){
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if(r!=null)return  unescape(r[2]); return null;
+        }
+        function get_cookie(Name) {
+            var search = Name + "="//查询检索的值
+            var returnvalue = "";//返回值
+            if (document.cookie.length > 0) {
+                sd = document.cookie.indexOf(search);
+                if (sd!= -1) {
+                    sd += search.length;
+                    end = document.cookie.indexOf(";", sd);
+                    if (end == -1)
+                        end = document.cookie.length;
+                    returnvalue=unescape(document.cookie.substring(sd, end))
+                }
+            }
+            return returnvalue;
+        }
+        function isLogin() {
+            rootScope.car_master_id = get_cookie('car_master_id');
+            // rootScope.car_master_id='7168955orxycow04'//TODO
+            if(rootScope.car_master_id){
+                return true;
+            }else {
+                return false;
+            }
+        }
+        var Login = {
+            template: '#login',
+            data: function(){
+                return {
+                    isaggree:false,
+                    tishi:false,
+                    xieyi:false,
+                    telNumber:'',
+                    codeNumber:'',
+                    preloadingInTime:true
+                }
+            },
+            computed: {
+            },
+            watch:{
+            },
+            ready:function () {
+                this.get_msgcode=$('.get-msgcode');
+                this.stopBub();
+                toexeshare();
+                this.companyId=GetQueryString('company_id');
+                if(this.companyId){
+                    this.toifCopor();
+                }else {
+                    this.preloadingInTime=false;
+                }
+            },
+            methods: {
+                stopBub:function () {
+                    setTimeout(function () {
+                        $("body").delegate(".stopPop","touchstart",function(event){
+                            document.getElementById('app').addEventListener('touchmove',stop,false);
+                        });
+                        $("body").delegate(".stopPop","touchend",function(event){
+                            document.getElementById('app').removeEventListener('touchmove',stop,false)
+                        });
+                    },30)
+                },
+                toifCopor:function () {
+                    var vm=this;
+                    $.ajax({
+                        url:ajaxUrl+'/Common/CheckCompany',
+                        type:'get',
+                        dataType:"json",
+                        data:{company_id:this.companyId},
+                        success:function(data){
+                            if(data.code==200 && data.msg.ret_code==200){
+                               if(data.msg.result.cooperative==0){
+                                   $('.loaderInTime').hide();
+                                   $('.loading_shaowInTime').html('二维码已失效');
+                               }else {
+                                   vm.preloadingInTime=false;
+                               }
+                            }else {
+                                faileHint($('.loginBox'),data.msg.ret_msg);
+                            }
+                        },
+                        error:function () {
+                            faileHint($('.loginBox'),'网络异常');
+                        }
+                    })
+                },
+                getCode:function () {
+                    if (!(/^1(?:[38]\d{3}|4[57]\d{2}|5[0-35-9]\d{2}|6[68]\d{2}|7(?:[0-35-8]\d{2}|40[0-5])|9[89]\d{2})\d{6}$/.test(this.telNumber))) {
+                        faileHint($('.loginBox'),'请输入正确手机号');
+                        return false;
+                    }
+                    this.countdowndown();
+                    this.checkCode();
+                },
+                sureHandle:function () {
+                    var vm=this;
+                    if (!vm.checkMobile(vm.telNumber)) {
+                        //alert('请输入正确手机号');
+                        faileHint($('.loginBox'),'请输入正确手机号');
+                        return fasle;
+                    }
+                    if (!vm.codeNumber) {
+                        // alert('请输入短信验证码');
+                        faileHint($('.loginBox'),'请输入短信验证码');
+                        return false;
+                    }
+                    if(!vm.isaggree){
+                        vm.tishi=true;
+                        return false;
+                    }
+                    $.ajax({
+                        url: ajaxUrl+'/Common/SignUpiDriver',
+                        type: 'post',
+                        //dataType: 'jsonp',
+                        data:{cellphone:vm.telNumber,authCode:vm.codeNumber},
+                        success: function (data) {
+                            if(data.code==200){//登录成功
+                                if(data.msg.ret_code==200 || data.msg.ret_code==203){//(全新加盟or已经处于加盟流程中)返回司机信息
+                                    //data.msg.result.auditStatus=1//TODO
+                                    if(data.msg.result.auditStatus==1){//waiting
+                                        window.location.href='./audiW.html';
+                                        return;
+                                    }
+                                    if(data.msg.result.auditStatus==10){//success
+                                        window.location.href='./audiS.html';
+                                        return;
+                                    }
+                                    rootScope = Object.assign({}, rootScope,data.msg.result);
+                                    // vm.$router.go('/drawinfo');
+                                    router.go({ name: 'drawinfo'});
+                                }else if(data.msg.ret_code==501 || data.msg.ret_code==500){
+                                    faileHint($('.loginBox'),data.msg.ret_msg);
+                                }else if(data.msg.ret_code==201){
+                                    faileHint($('.loginBox'),'验证码错误，请重新输入');
+                                }else if(data.msg.ret_code==202){
+                                    //faileHint($('.loginBox'),'已经是司机，请下载客户端体验司机');
+                                    window.location.href='./audiS.html';
+                                }else{
+                                    faileHint($('.loginBox'),'未知错误');
+                                }
+                            }else if(data.code==499){
+                                faileHint($('.loginBox'),'参数异常');
+                            }else {
+                                faileHint($('.loginBox'),'登录失败');
+                            }
+                        },
+                        error: function (err) {
+                            faileHint($('.loginBox'),'网络异常');
+                        }
+                    })
+                },
+                checkMobile:function (number) {
+                    if (!(/^1(?:[38]\d{3}|4[57]\d{2}|5[0-35-9]\d{2}|6[68]\d{2}|7(?:[0-35-8]\d{2}|40[0-5])|9[89]\d{2})\d{6}$/.test(number))) {
+                        return false;
+                    }
+                    return true;
+                },
+                countdowndown:function () {
+                    var vm=this;
+                    var count = 59;
+                    var countdown = setInterval(CountDown, 1000);
+                    function CountDown() {
+                        vm.get_msgcode.attr("disabled", true);
+                        vm.get_msgcode.css("color", "#e1e1e1");
+                        vm.get_msgcode.val(count + "s后再获取");
+                        if (count == 0) {
+                            vm.get_msgcode.val("获取验证码").removeAttr("disabled");
+                            vm.get_msgcode.css("color", "#FF5252");
+                            clearInterval(countdown);
+                        }
+                        count--;
+                    }
+                },
+                checkCode:function () {
+                    var vm=this;
+                    $.ajax({
+                        type: 'post',
+                        url: ajaxUrl+'/Common/CreateAuthCode',
+                        dataType: 'json',
+                        data:{cellphone:vm.telNumber},
+                        success: function (data) {
+                            if (data.code == 200) {
+                                if(data.msg.ret_code==200){
+                                    faileHint($('.loginBox'),'验证码已发送');
+                                }else {
+                                    faileHint($('.loginBox'),data.msg.ret_msg);
+                                }
+                            } else if (data.code == 499) {
+                                faileHint($('.loginBox'),'操作频繁，请稍后再试');
+                            } else{
+                                faileHint($('.loginBox'),'未知错误');
+                            }
+                        },
+                        error: function (err) {
+                            faileHint($('.loginBox'),'请求异常');
+                        }
+                    })
+                },
+                closetishi:function () {
+                    this.tishi=false;
+                },
+                closexieyi:function () {
+                    this.xieyi=false;
+                },
+                showxieyi:function () {
+                    this.xieyi=true;
+                },
+                downloadapp:function () {
+                    var u = navigator.userAgent;
+                    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+                    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+                    var link = '';
+                    link = 'http://d.yongche.com';
+                    isiOS && (link = 'https://appsto.re/cn/zwVq8.i');
+                    window.location.href=link;
+                }
+            }
+        };
+        var Drawinfo = {
+            template: '#drawinfo',
+            data: function(){
+                return {
+                    xingship:false,
+                    jiaship:false,
+                    cherenp:false,
+                    wangyuez:false,
+                    audiF:false,
+                    carbrand:'',
+                    carb:'',
+                    carx:'',
+                    carcolor:'',
+                    carBrand:'',
+                    license_time:'',
+                    license_time_str:'',
+                    car_time:'',
+                    car_time_str:'',
+                    carNumSelect:'京 A',
+                    carNum:'',
+                    ifdone:'',
+                    registerName:'',
+                    id_card:'',
+                    chezhuName:'',
+                    cityList:'',
+                    wenzhoumsg:false,
+                    carBrandId:'',
+                    carModelId:'',
+                    carColor:'',
+                    photoId:'',
+                    identityImgId:'',
+                    identityBackImgId:'',
+                    driverLicenseImgId:'',
+                    carLicenseImgId:'',
+                    driverImgId:'',
+                    networkDriverImg1:'',
+                    networkDriverImg2:'',
+                    networkTransportImg1:'',
+                    networkTransportImg2:'',
+                    networkTransportImg3:'',
+                    timecar:false,
+                    timeren:false,
+                    jiatime:3,
+                    cartime:8,
+                    ifneedWangyue:true,
+                    auditFailReason:{},
+                    preloading:true,
+                    personalVal:'',
+                    touxiangp:false
+                }
+            },
+            watch:{
+                carbrand:function () {
+                    var newarea = this.carbrand.split(' ');//
+                    this.carb = newarea[0];
+                    this.carx= newarea[1];
+                    this.carcolor = newarea[2];
+                    this.carBrand=this.carb+this.carx;
+                    this.carBrandId=this.brand_list[this.area2.value[0]].value;
+                    this.carModelId=this.carListObg[this.carBrandId][this.area2.value[1]].value;
+                    this.carColor=this.color_list[this.carModelId][this.area2.value[2]].value;
+                },
+                personalVal:function (curVal,oldVal) {
+                    if(curVal==oldVal){
+                        return;
+                    }
+                    this.getConfig(curVal);
+                }
+            },
+            computed: {
+                ifdone:function () {
+                    if(this.registerName && this.id_card && this.carNum && this.carbrand && this.chezhuName && this.license_time && this.car_time && this.photoId && this.identityImgId && this.identityBackImgId && this.driverLicenseImgId && this.carLicenseImgId){
+                        if(this.ifneedWangyue && !$('#wangyuep').hasClass("done")){
+                            return false;
+                        }
+                        return true;
+                    }else {
+                        return false;
+                    }
+                }
+            },
+            ready: function() {
+                if(!rootScope.car_master_id && !rootScope.register_code){
+                    window.location='yidaodriver://closeWindow';
+                }
+                toexeshare();
+                this.stopBub();
+                var vm=this;
+                this.timeSelet();
+                //rootScope.auditStatus=20//TODO
+                if(rootScope.auditStatus==20){//fail
+                    if(this.auditFailReason){
+                        this.auditFailReason=JSON.parse(rootScope.auditFailReason);
+                    }
+                    this.audiF=true;
+                    this.preloading=false;
+                    // $('input[type=file]').attr('disabled','disabled');
+                    this.fuzhi();
+                }
+                if(rootScope.auditStatus==0){
+                    this.fuzhi();
+                    this.preloading=false;
+                }
+                var swiper = new Swiper('.swiper-container', {
+                    pagination: '.swiper-pagination',
+                    spaceBetween: 35,
+                });
+                this.initData();
+                if(!rootScope.car_master_id){
+                    this.citySelet();
+                    this.inicarColor();
+                    // this.getgeolo();
+                }
+                this.carNumSelet();
+                this.toseepic();
+                if (window.navigator.userAgent.indexOf("YongChe")> -1) {
+                    this.initGloFun();
+                    this.inputProtocal();
+                } else {
+                    this.iniinput();
+                }
+            },
+            methods: {
+                stopBub:function () {
+                    setTimeout(function () {
+                        $("body").delegate(".stopPop","touchstart",function(event){
+                            document.getElementById('app').addEventListener('touchmove',stop,false);
+                        });
+                        $("body").delegate(".stopPop","touchend",function(event){
+                            document.getElementById('app').removeEventListener('touchmove',stop,false)
+                        });
+                    },30)
+                },
+                initData:function () {
+                    if(rootScope.car_master_id){
+                        var vm=this;
+                        $.ajax({
+                            type: 'get',
+                            url: ajaxUrl+'/Common/GetDriverRegisterInfo',
+                            dataType: 'json',
+                            data:{s_car_master_id:rootScope.car_master_id},
+                            success: function (data) {
+                                if (data.code == 200) {
+                                    if(data.msg.ret_code==200){
+                                        if(data.msg.result.auditFailReason){
+                                            data.msg.result.auditFailReason=JSON.parse(data.msg.result.auditFailReason)
+                                        };
+                                        rootScope = Object.assign({}, rootScope,data.msg.result);
+                                        //data.msg.result.auditStatus=1//TODO
+                                        if(data.msg.result.auditStatus==1){//waiting
+                                            window.location.href='./audiW.html';
+                                            return;
+                                        }
+                                        if(data.msg.result.auditStatus==10){//success
+                                            window.location.href='./audiS.html';
+                                            return;
+                                        }
+                                        if(data.msg.result.auditStatus==20){//fail
+                                            vm.auditFailReason=data.msg.result.auditFailReason;
+                                            vm.audiF=true;
+                                            // $('input[type=file]').attr('disabled','disabled');
+                                        }else {
+                                            vm.citySelet();
+                                            //vm.getgeolo();
+                                        }
+                                        vm.preloading=false;
+                                        //rootScope.carBrandId=15;//TODO
+                                        // rootScope.carModelId=161;//TODO
+                                        vm.fuzhi();
+                                        vm.inicarColor();
+                                    }else {
+                                        faileHint($('.infoBox'),data.msg.ret_msg);
+                                    }
+                                } else if (data.code == 499) {
+                                    faileHint($('.infoBox'),data.msg.ret_msg);
+                                } else{
+                                    faileHint($('.infoBox'),'未知错误');
+                                }
+                            },
+                            error: function (err) {
+                                alert(err)
+                            }
+                        })
+                    }
+                },
+                fuzhi:function () {
+                    var vm=this;
+                    vm.registerName=rootScope.name;
+                    vm.chezhuName=rootScope.vehicleOwnerName;
+                    vm.id_card=rootScope.identityCard;
+//                if(rootScope.city && vm.cityList){
+//                    $('#personal').mobiscroll('setVal',rootScope.city, true);
+//                    $('#personal_dummy').val(rootScope.short);
+//                    $('#personal').val(rootScope.city);
+//                    console.log('fuzhicityed')
+//                }
+                    if(rootScope.licenseStartDate){
+                        var time = new Date(parseInt(rootScope.licenseStartDate)*1000);
+                        var M = time.getMonth()+1 < 10 ? '0'+(time.getMonth()+1) : time.getMonth()+1;
+                        var D = time.getDate() < 10 ? '0' + (time.getDate()) : time.getDate();
+                        var dateFormate = time.getFullYear() + '-' + M + '-' + D;
+                        vm.license_time=dateFormate;
+                        var arr1=dateFormate.split('-');
+                        $('#select_time').mobiscroll('setDate', new Date(arr1[0], arr1[1]-1, arr1[2], 0, 0, 0, 0), true);
+                        vm.license_time_str=rootScope.licenseStartDate;
+                    }
+                    if(rootScope.carRegisterTime){
+                        var time2 = new Date(parseInt(rootScope.carRegisterTime)*1000);
+                        var M2 = time2.getMonth()+1 < 10 ? '0'+(time2.getMonth()+1) : time2.getMonth()+1;
+                        var D2 = time2.getDate() < 10 ? '0' + (time2.getDate()) : time2.getDate();
+                        var dateFormate2 = time2.getFullYear() + '-' + M2 + '-' + D2;
+                        vm.car_time=dateFormate2;
+                        var arr2=dateFormate2.split('-');
+                        $('#car_time').mobiscroll('setDate', new Date(arr2[0], arr2[1]-1, arr2[2], 0, 0, 0, 0), true);
+                        vm.car_time_str=rootScope.carRegisterTime;
+
+                    }
+                    if( rootScope.vehicleNumber && rootScope.vehicleNumber.length>=3){
+                        vm.carNum=rootScope.vehicleNumber.substring(2);
+                        $('.select-value2').val(rootScope.vehicleNumber.substring(0,2).split("").join(" "))
+                    }
+                    if(rootScope.photoId){
+                        $('#head_img_id').val(true);
+                        $('.headImg').attr('src',rootScope.photoId);
+                        $('.head2').attr('src',rootScope.photoId);
+                        $('#headp').html('已上传').addClass("done");
+                        vm.photoId=true;
+                        $('.head2')[0].onload=function () {
+                            vm.auto(this)
+                        }
+
+                    }
+                    if(rootScope.identityImgId && rootScope.identityBackImgId){
+                        $('.shenfenz1').attr('src',rootScope.identityImgId);
+                        $('.shenfenz2').attr('src',rootScope.identityBackImgId);
+                        $('#shenfenp').html('已上传').addClass("done");
+                        $('#shenfenz_img_id').val(true);
+                        $('#shenfenz_back_img_id').val(true);
+                        vm.identityImgId=true;
+                        vm.identityBackImgId=true;
+                        $('.shenfenz1')[0].onload=function () {
+                            vm.auto(this)
+                        }
+                        $('.shenfenz2')[0].onload=function () {
+                            vm.auto(this)
+                        }
+                    }
+                    if(rootScope.driverLicenseImgId){
+                        $('.jiashiz').attr('src',rootScope.driverLicenseImgId);
+                        $('#jiaship').html('已上传').addClass("done");
+                        $('#jiashiz_img_id').val(true);
+                        vm.driverLicenseImgId=true;
+                        $('.jiashiz')[0].onload=function () {
+                            vm.auto(this)
+                        }
+                    }
+                    if(rootScope.carLicenseImgId){
+                        $('.xingshiz').attr('src',rootScope.carLicenseImgId);
+                        $('#xingship').html('已上传').addClass("done");
+                        $('#xingshiz_img_id').val(true);
+                        vm.carLicenseImgId=true;
+                        $('.xingshiz')[0].onload=function () {
+                            vm.auto(this)
+                        }
+                    }
+                    if(rootScope.driverImgId){
+                        $('.renchez').attr('src',rootScope.driverImgId);
+                        $('#renchep').html('已上传').addClass("done");
+                        $('#renchez_img_id').val(true);
+                        vm.driverImgId=true;
+                        $('.renchez')[0].onload=function () {
+                            vm.auto(this)
+                        }
+                    }
+                    if(rootScope.networkDriverImg1 || rootScope.networkDriverImg2 || rootScope.networkTransportImg1 || rootScope.networkTransportImg2 || rootScope.networkTransportImg3){
+                        $('#wangyuep').html('已上传').addClass("done");
+                    }
+                    if(rootScope.networkDriverImg1){
+                        $('.fileElem1').attr('src',rootScope.networkDriverImg1);
+                        $('#jia_img_id').val(true);
+                    }
+                    if(rootScope.networkDriverImg2){
+                        $('.fileElem2').attr('src',rootScope.networkDriverImg2);
+                        $('#jia_back_img_id').val(true);
+                    }
+                    if(rootScope.networkTransportImg1){
+                        $('.fileElem3').attr('src',rootScope.networkTransportImg1);
+                        $('#yun_img_id').val(true);
+                    }
+                    if(rootScope.networkTransportImg2){
+                        $('.fileElem4').attr('src',rootScope.networkTransportImg2);
+                        $('#yun_back_img_id').val(true);
+                    }
+                    if(rootScope.networkTransportImg3){
+                        $('.fileElem5').attr('src',rootScope.networkTransportImg3);
+                        $('#yun_backed_img_id').val(true);
+                    }
+                },
+                inicarColor:function () {
+                    var vm=this;
+                    vm.brand_list = [];
+                    vm.carListObg = {};
+                    vm.color_list = {};
+                    var colorType = ["其他", "黑色", "白色", "银色", "红色", "蓝色", "黄色", "灰色", "咖啡色", "香槟金", "绿色", "紫色", "粉色"]
+                    $.ajax({
+                        type:"get",
+                        url: ajaxUrl+'/Common/GetAllCarBrand',
+                        dataType: 'json',
+                        data:{register_code:rootScope.register_code},
+                        success:function(data){
+                            if(data.code==200 && data.msg.ret_code==200){
+                                vm.brand_list=data.msg.result.brand_list
+                                vm.carListObg = data.msg.result.car_list;
+                                for(var key in vm.carListObg){
+                                    for(var i=0; i<vm.carListObg[key].length; i++){
+                                        var colorkey = vm.carListObg[key][i]['value'];
+                                        vm.color_list[colorkey] = [];
+                                        for(var k=1; k<colorType.length;k++){
+                                            var tempObj = {};
+                                            tempObj['text'] = colorType[k];
+                                            tempObj['value'] = k;
+                                            vm.color_list[colorkey].push(tempObj);
+                                        }
+                                    }
+                                }
+                                vm.$nextTick(function () {
+                                    //carbarnd select
+                                    vm.area2 = new LArea();//carbrand选择初始化
+                                    vm.area2.init({
+                                        'trigger': '#carbrand',
+                                        'keys': {
+                                            id: 'value',
+                                            name: 'text'
+                                        },
+                                        'type': 2,
+                                        'data': [vm.brand_list, vm.carListObg, vm.color_list]
+                                    });
+                                    if(rootScope.carBrandId && rootScope.carModelId && rootScope.carColor){
+                                        var x,y,z;
+                                        var x1,y1,z1;
+                                        for(var i in vm.brand_list){
+                                            if(vm.brand_list[i].value==rootScope.carBrandId){
+                                                x=i;
+                                                x1=vm.brand_list[i].text;
+                                                var city=vm.carListObg[vm.brand_list[i].value];
+                                                for(var j in city){
+                                                    if(city[j].value==rootScope.carModelId){
+                                                        y=j;
+                                                        y1=city[j].text;
+                                                        var district=vm.color_list[city[j].value];
+                                                        for(var k in district){
+                                                            if(district[k].value==rootScope.carColor){
+                                                                z=k;
+                                                                z1=district[k].text;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        vm.area2.value=[x,y,z];
+//                                    $('#carbrand').val(x1+','+y1+','+'z1');
+                                        vm.carbrand=x1+' '+y1+' '+z1;
+                                        vm.carBrand=x1+y1;
+                                    }
+                                })
+                            }else {
+                                faileHint($('.infoBox'),'服务器错误')
+                            }
+                        },
+                        error:function(){
+                            faileHint($('.infoBox'),'请求异常')
+                        }
+                    });
+                },
+                uploadImg2:function (file,method,$li) {
+                    var vm=this;
+                    var formdata = new FormData();
+                    var url,data;
+                    var url=ajaxUrl+'/Common/ImgRegister';
+                    var data={
+                        register_code:rootScope.register_code,
+                        method:method
+                    }
+                    if(method=='photoId'){
+                        url=ajaxUrl+'/Common/UploadPhoto';
+                        data={
+                            register_code:rootScope.register_code,
+                        }
+                    }
+                    if(method=='identityImgId'){
+                        url=ajaxUrl+'/Common/UploadIdentity';
+                        data={
+                            register_code:rootScope.register_code,
+                        }
+                    }
+                    if(method=='identityBackImgId'){
+                        url=ajaxUrl+'/Common/UploadIdentityBack';
+                        data={
+                            register_code:rootScope.register_code,
+                        }
+                    }
+                    if(method=='driverLicenseImgId'){
+                        url=ajaxUrl+'/Common/UploadDriverLicense';
+                        data={
+                            register_code:rootScope.register_code,
+                        }
+                    }
+                    if(method=='carLicenseImgId'){
+                        url=ajaxUrl+'/Common/UploadCarLicense';
+                        data={
+                            register_code:rootScope.register_code,
+                        }
+                    }
+                    if(method=='driverImgId'){
+                        url=ajaxUrl+'/Common/UploadDriver';
+                        data={
+                            register_code:rootScope.register_code,
+                        }
+                    }
+                    formdata.append('data',encodeURIComponent(JSON.stringify(data)));
+                    formdata.append('img',file);
+                    $li.attr('disabled','disabled');
+                    $li.siblings('.uploadProgress').show();
+                    $.ajax({
+                        type:'post',
+                        url: url,
+                        data:formdata,
+                        processData: false,
+                        contentType : false,
+                        async:true,
+                        success:function(data) {
+                            if(data.code==200){
+                                if(data.msg.ret_code==200){
+                                    var result=data.msg.result;
+                                    var img_url = data.msg.result.img_url;
+                                    $('.'+$li.attr('id')).attr("src",img_url);
+                                    if($('.'+$li.attr('id')).parent().hasClass("picbox") || $('.'+$li.attr('id')).parent().hasClass("swiper-slide")){
+                                        $('.'+$li.attr('id'))[0].onload=function () {
+                                            vm.auto(this)
+                                        }
+                                    }
+                                    if($li.attr('id')=='head1'){
+                                        $('.head2')[0].onload=function () {
+                                            vm.auto(this)
+                                        }
+                                    }
+                                    faileHint($('.infoBox'),'上传成功')
+                                    $li.siblings('.uploadProgress').hide();
+                                    $li.removeAttr("disabled");
+                                    if($li.attr('data-tan')){
+                                        $('.'+$li.attr('data-tan')).css({'z-index':-1,'opacity':0});
+                                        if($li.attr('data-tan')=='shenfenz'){
+                                            $('.shenfenT').css({'z-index':-1,'opacity':0});
+                                        }
+                                    }
+                                    if($li.attr('data-p')){
+                                        $('#'+$li.attr('data-p')).html('已上传').addClass("done");
+                                    }
+                                    if($li.parent().hasClass("chuan")){
+                                        $('#wangyuep').html('已上传').addClass("done");
+                                    }
+                                    if($li.attr('id')=='shenfenz1'){
+                                        $('.shenfenT').css({'z-index':10,'opacity':1});
+                                    }
+                                    $li.siblings('input[type=hidden]').val(true);
+                                    $li.siblings('input[type=hidden]')[0].dispatchEvent(new Event('input'))
+                                    if(method=='identityImgId'){
+                                        vm.registerName=result.name;
+                                        vm.id_card=result.idCardNo
+                                    }
+                                    if(method=='driverLicenseImgId'){
+                                        if(result.firstIssueDate){
+                                            var date=result.firstIssueDate;
+                                            var str=date.substr(0,4)+'-'+date.substr(4,2)+'-'+date.substr(6,2)
+                                            vm.license_time=str;
+                                            var str1=str.replace(/-/g,'/')
+                                            vm.license_time_str=parseInt(new Date(str1).getTime()/1000);
+                                            var firstarr1=str.split('-');
+                                            $('#select_time').mobiscroll('setDate', new Date(firstarr1[0], firstarr1[1]-1, firstarr1[2], 0, 0, 0, 0), true);
+                                        }
+                                    }
+                                    if(method=='carLicenseImgId'){
+                                        vm.chezhuName=result.carOwner;
+                                        if(result.registerDate){
+                                            var datecar=result.registerDate;
+                                            var strcar=datecar.substr(0,4)+'-'+datecar.substr(4,2)+'-'+datecar.substr(6,2)
+                                            vm.car_time=strcar;
+                                            var strcar1=strcar.replace(/\-/g,'/')
+                                            vm.car_time_str=parseInt(new Date(strcar1).getTime()/1000);
+                                            var registerarr2=strcar.split('-');
+                                            $('#car_time').mobiscroll('setDate', new Date(registerarr2[0], registerarr2[1]-1, registerarr2[2], 0, 0, 0, 0), true);
+                                        }
+                                        if(result.vehicleNumber.length>=2){
+                                            vm.carNum=result.vehicleNumber.substring(2);
+                                            $('.select-value2').val(result.vehicleNumber.substring(0,2).split("").join(" "))
+                                        }
+                                    }
+                                }else if(data.msg.ret_code==401 || data.msg.ret_code==601 || data.msg.ret_code==502 || data.msg.ret_code==503 || data.msg.ret_code==402 || data.msg.ret_code==501 || data.msg.ret_code==500 || data.msg.ret_code==499){
+                                    $li.siblings('.uploadProgress').hide();
+                                    faileHint($('.infoBox'),data.msg.ret_msg);
+                                    $li.removeAttr("disabled");
+                                }else {
+                                    $li.siblings('.uploadProgress').hide();
+                                    faileHint($('.infoBox'),'上传失败，请检查网络设置是否正常');
+                                    $li.removeAttr("disabled");
+                                }
+
+                            } else{
+                                $li.siblings('.uploadProgress').hide();
+                                faileHint($('.infoBox'),data.msg);
+                                $li.removeAttr("disabled");
+                            }
+                        },
+                        error:function() {
+                            $li.siblings('.uploadProgress').hide();
+                            faileHint($('.infoBox'),'上传失败，请检查网络设置是否正常')
+                            $li.removeAttr("disabled");
+                        }
+                    });
+                },
+                iniinput:function () {
+                    var vm=this;
+                    $("#head1").change(function(e) {
+                        var file = this.files[0];
+                        vm.uploadImg2(file,'photoId',$(this));
+                        e.target.value=null;
+                    });
+                    $("#shenfenz1").change(function(e) {
+                        var file = this.files[0];
+                        vm.uploadImg2(file,'identityImgId',$(this));
+                        e.target.value=null;
+                    });
+                    $("#shenfenz2").change(function(e) {
+                        var file = this.files[0];
+                        vm.uploadImg2(file,'identityBackImgId',$(this));
+                        e.target.value=null;
+                    });
+                    $("#jiashiz").change(function(e) {
+                        var file = this.files[0];
+                        vm.uploadImg2(file,'driverLicenseImgId',$(this));
+                        e.target.value=null;
+                    });
+                    $("#xingshiz").change(function(e) {
+                        var file = this.files[0];
+                        vm.uploadImg2(file,'carLicenseImgId',$(this));
+                        e.target.value=null;
+                    });
+                    $("#renchez").change(function(e) {
+                        var file = this.files[0];
+                        vm.uploadImg2(file,'driverImgId',$(this));
+                        e.target.value=null;
+                    });
+                    $("#fileElem1").change(function(e) {
+                        var file = this.files[0];
+                        vm.uploadImg2(file,'networkDriverImg1',$(this));
+                        e.target.value=null;
+                    });
+                    $("#fileElem2").change(function(e) {
+                        var file = this.files[0];
+                        vm.uploadImg2(file,'networkDriverImg2',$(this));
+                        e.target.value=null;
+                    });
+                    $("#fileElem3").change(function(e) {
+                        var file = this.files[0];
+                        vm.uploadImg2(file,'networkTransportImg1',$(this));
+                        e.target.value=null;
+                    });
+                    $("#fileElem4").change(function(e) {
+                        var file = this.files[0];
+                        vm.uploadImg2(file,'networkTransportImg2',$(this));
+                        e.target.value=null;
+                    });
+                    $("#fileElem5").change(function(e) {
+                        var file = this.files[0];
+                        vm.uploadImg2(file,'networkTransportImg3',$(this));
+                        e.target.value=null;
+                    });
+                },
+                inputProtocal:function () {
+                    var version = navigator.userAgent.substr(navigator.userAgent.indexOf("YongChe")).split(" ")[0].split("/")[1]
+                    console.log(version)
+                    //alert(version)
+                    version = version.split(".");
+                    if(version[0]<8 || (version[1] < 3 && version[0]==8) ){
+                        alert("您当前版本过低，将无法上传图片,请先升级易到App！")
+                        //return;
+                    }
+                    $('input[type=file]').on('click',function() {
+                        var id = $(this).attr('id');
+                        var data={
+                            register_code:rootScope.register_code,
+                        };
+                        if(id == 'head1'){
+                            window.location.href = 'yongche://uploadProtocol?callback=uploadHeadImage&imageId='+id+'&uploadUrl='+encodeURIComponent(ajaxUrl+'/Common/UploadPhoto')+'&data='+encodeURIComponent(JSON.stringify(data));
+                            return false;
+                        }
+                        if(id == 'shenfenz1'){
+                            window.location.href = 'yongche://uploadProtocol?callback=uploadHeadImage&imageId='+id+'&uploadUrl='+encodeURIComponent(ajaxUrl+'/Common/UploadIdentity')+'&data='+encodeURIComponent(JSON.stringify(data));
+                            return false;
+                        }
+                        if(id == 'shenfenz2'){
+                            window.location.href = 'yongche://uploadProtocol?callback=uploadHeadImage&imageId='+id+'&uploadUrl='+encodeURIComponent(ajaxUrl+'/Common/UploadIdentityBack')+'&data='+encodeURIComponent(JSON.stringify(data));
+                            return false;
+                        }
+                        if(id == 'jiashiz'){
+                            window.location.href = 'yongche://uploadProtocol?callback=uploadHeadImage&imageId='+id+'&uploadUrl='+encodeURIComponent(ajaxUrl+'/Common/UploadDriverLicense')+'&data='+encodeURIComponent(JSON.stringify(data));
+                            return false;
+                        }
+                        if(id == 'xingshiz'){
+                            window.location.href = 'yongche://uploadProtocol?callback=uploadHeadImage&imageId='+id+'&uploadUrl='+encodeURIComponent(ajaxUrl+'/Common/UploadCarLicense')+'&data='+encodeURIComponent(JSON.stringify(data));
+                            return false;
+                        }
+                        if(id == 'renchez'){
+                            window.location.href = 'yongche://uploadProtocol?callback=uploadHeadImage&imageId='+id+'&uploadUrl='+encodeURIComponent(ajaxUrl+'/Common/UploadDriver')+'&data='+encodeURIComponent(JSON.stringify(data));
+                            return false;
+                        }
+                        if(id == 'fileElem1') {
+                            data={
+                                method:"networkDriverImg1",
+                                register_code:rootScope.register_code
+                            }
+                        }
+                        if(id == 'fileElem2') {
+                            data={
+                                method:"networkDriverImg2",
+                                register_code:rootScope.register_code
+                            }
+                        }
+                        if(id == 'fileElem3') {
+                            data={
+                                method:"networkTransportImg1",
+                                register_code:rootScope.register_code
+                            }
+                        }
+                        if(id == 'fileElem4') {
+                            data={
+                                method:"networkTransportImg2",
+                                register_code:rootScope.register_code
+                            }
+                        }
+                        if(id == 'fileElem5') {
+                            data={
+                                method:"networkTransportImg3",
+                                register_code:rootScope.register_code
+                            }
+                        }
+                        window.location.href = 'yongche://uploadProtocol?callback=uploadHeadImage&imageId='+id+'&uploadUrl='+encodeURIComponent(ajaxUrl+'/Common/ImgRegister')+'&data='+encodeURIComponent(JSON.stringify(data));
+                        return false;
+                    })
+                },
+                initGloFun:function () {
+                    var vm=this;
+                    window.uploadHeadImage=function (code,file_id,data) {
+                        var $li=$('#' + file_id);
+                        if(code == file_id) {
+                            //$('#' + file_id).siblings(".uploadProgress").show();//上传中loading效果
+                        } else if(code == 'failure') {
+                            $('#' + file_id).siblings('.uploadProgress').hide();
+                            faileHint($('.infoBox'),'上传失败，请检查网络设置是否正常')
+                        } else {
+                            if (code == 200) {
+                                // res=JSON.parse(decodeURIComponent(data))
+                                var res=JSON.parse(decodeURIComponent(data)).msg;
+                                //console.log(res)//打印返回data.msg
+                                if(res.ret_code==200){
+                                    var result=res.result;
+                                    var img_url = result.img_url;
+                                    $('.'+file_id).attr("src",img_url);
+                                    if($('.'+file_id).parent().hasClass("picbox") || $('.'+$li.attr('id')).parent().hasClass("swiper-slide")){
+                                        $('.'+file_id)[0].onload=function () {
+                                            vm.auto(this)
+                                        }
+                                    }
+                                    if(file_id=='head1'){
+                                        $('.head2')[0].onload=function () {
+                                            vm.auto(this)
+                                        }
+                                    }
+                                    faileHint($('.infoBox'),'上传成功')
+                                    $li.siblings('.uploadProgress').hide();
+                                    if($li.attr('data-tan')){
+                                        $('.'+$li.attr('data-tan')).css({'z-index':-1,'opacity':0});
+                                        if($li.attr('data-tan')=='shenfenz'){
+                                            $('.shenfenT').css({'z-index':-1,'opacity':0});
+                                        }
+                                    }
+                                    if($li.attr('data-p')){
+                                        $('#'+$li.attr('data-p')).html('已上传').addClass("done");
+                                    }
+                                    if($li.parent().hasClass("chuan")){
+                                        $('#wangyuep').html('已上传').addClass("done");
+                                    }
+                                    if($li.attr('id')=='shenfenz1'){
+                                        $('.shenfenT').css({'z-index':10,'opacity':1});
+                                    }
+                                    $li.siblings('input[type=hidden]').val(true);
+                                    $li.siblings('input[type=hidden]')[0].dispatchEvent(new Event('input'))
+                                    if(file_id=='shenfenz1'){
+                                        vm.registerName=result.name;
+                                        vm.id_card=result.idCardNo
+                                    }
+                                    if(file_id=='jiashiz'){
+                                        if(result.firstIssueDate){
+                                            var date=result.firstIssueDate;
+                                            var str=date.substr(0,4)+'-'+date.substr(4,2)+'-'+date.substr(6,2)
+                                            vm.license_time=str;
+                                            var str1=str.replace(/\-/g,'/')
+                                            vm.license_time_str=parseInt(new Date(str1).getTime()/1000);
+                                            var firstarr1=str.split('-');
+                                            $('#select_time').mobiscroll('setDate', new Date(firstarr1[0], firstarr1[1]-1, firstarr1[2], 0, 0, 0, 0), true);
+                                        }
+                                    }
+                                    if(file_id=='xingshiz'){
+                                        vm.chezhuName=result.carOwner;
+                                        if(result.registerDate){
+                                            var datecar=result.registerDate;
+                                            var strcar=datecar.substr(0,4)+'-'+datecar.substr(4,2)+'-'+datecar.substr(6,2)
+                                            vm.car_time=strcar;
+                                            var strcar1=strcar.replace(/\-/g,'/')
+                                            vm.car_time_str=parseInt(new Date(strcar1).getTime()/1000);
+                                            var registerarr2=strcar.split('-');
+                                            $('#car_time').mobiscroll('setDate', new Date(registerarr2[0], registerarr2[1]-1, registerarr2[2], 0, 0, 0, 0), true);
+                                        }
+                                        if(result.vehicleNumber.length>=2){
+                                            vm.carNum=result.vehicleNumber.substring(2);
+                                            $('.select-value2').val(result.vehicleNumber.substring(0,2).split("").join(" "))
+                                        }
+                                    }
+                                }else if(res.ret_code==401 || res.ret_code==601 ||res.ret_code==502 || res.ret_code==503 || res.ret_code==402 || res.ret_code==501 || res.ret_code==500 || res.ret_code==499){
+                                    $li.siblings('.uploadProgress').hide();
+                                    faileHint($('.infoBox'),res.ret_msg)
+                                }else {
+                                    $li.siblings('.uploadProgress').hide();
+                                    faileHint($('.infoBox'),'上传失败，请检查网络设置是否正常')
+                                }
+                            } else {
+                                $li.siblings('.uploadProgress').hide();
+                                faileHint($('.infoBox'),'上传失败，请检查网络设置是否正常')
+                            }
+                        }
+                    }
+                },
+                citySelet:function () {
+                    var vm=this;
+                    //city select
+                    $.ajax({
+                        url:ajaxUrl+'/Common/GetDriverServiceCity',
+                        type:'get',
+                        dataType:"json",
+                        data:{register_code:rootScope.register_code},
+                        success:function(data){
+                            if(data.code==200 && data.msg.ret_code==200){
+                                vm.cityList=data.msg.result;
+                                //vm.cityList.splice(1 - 1, 1,...vm.cityList.splice(2 - 1, 1, vm.cityList[1 - 1]));
+                                vm.$nextTick(function () {
+                                    $('#personal').mobiscroll().select({
+                                        theme: 'ios7',
+                                        inputClass: 'xs7 pt z',
+                                        placeholder:'请选择',
+                                        lang: 'zh',
+                                        height: 70,
+                                        display: 'bottom',
+                                        closeOnOverlay:false,
+                                        mode: 'scroller',
+                                        onSelect:function(valueText, inst){
+//                                        console.log($('#personal_dummy').val())
+//                                        console.log($('#personal').val())
+                                            $('#personal')[0].dispatchEvent(new Event('change'));
+                                            $('.mbsc-ios7 .dwo').css({'background':'rgba(0,0,0,.2)'})
+                                        },
+                                        onShow: function (event, inst) {
+                                            $('.mbsc-ios7 .dwo').css({'background':'rgba(0,0,0,.8)'})
+                                        },
+                                        onCancel: function (event, inst) {
+                                            $('.mbsc-ios7 .dwo').css({'background':'rgba(0,0,0,.2)'})
+                                        },
+                                        onChange: function (event, inst) {
+
+                                        }
+                                    });
+                                });
+                                if(rootScope.city){
+                                    // $('#personal').mobiscroll('setVal',rootScope.city, true);
+                                    // $('#personal_dummy').val(rootScope.short);
+                                    $('#personal').val(rootScope.city);
+                                    vm.personalVal=rootScope.city;
+                                }else {
+                                    vm.getgeolo();
+                                }
+                            }else {
+                                faileHint($('.infoBox'),data.msg.ret_msg);
+                            }
+                        },
+                        error:function () {
+                            faileHint($('.infoBox'),'网络异常');
+                        }
+                    })
+                },
+                timeSelet:function () {
+                    //time select
+                    var vm=this;
+                    var myDate=new Date();
+                    window.currentTime = parseInt(myDate.getTime() / 1000);
+                    var A=$("#select_time");
+                    var B=$("#car_time");
+                    A.mobiscroll().date({
+                        theme: "ios7",
+                        lang: "zh",
+                        display: "bottom",
+                        mode: "scroller",
+                        yearSuffix: "<em>年</em>",
+                        daySuffix: "<em>日</em>",
+                        dateOrder: "YYMMdd",
+                        height: 70,
+                        closeOnOverlay:false,
+                        dateFormat: 'yy-mm-dd',
+                        minDate: new Date((currentTime - 365 * 100 * 24 * 3600) * 1000),
+                        maxDate: new Date(currentTime * 1000),
+                        onSelect: function(C, D) {
+                            var timeSec = A.mobiscroll('getDate').getTime();
+                            var time = new Date(timeSec);
+                            var M = time.getMonth()+1 < 10 ? '0'+(time.getMonth()+1) : time.getMonth()+1;
+                            var D = time.getDate() < 10 ? '0' + (time.getDate()) : time.getDate();
+                            var dateFormate = time.getFullYear() + '-' + M + '-' + D;
+                            //$('#select_time').attr('value', dateFormate);
+                            vm.license_time=dateFormate;
+                            vm.license_time_str=timeSec/1000;
+                            vm.timeren=false;
+                        },
+                        onShow: function (event, inst) {
+                            vm.timeren=true;
+                        },
+                        onCancel: function (event, inst) {
+                            vm.timeren=false;
+                        }
+                    });
+                    B.mobiscroll().date({
+                        theme: "ios7",
+                        lang: "zh",
+                        display: "bottom",
+                        mode: "scroller",
+                        yearSuffix: "<em>年</em>",
+                        daySuffix: "<em>日</em>",
+                        dateOrder: "YYMMdd",
+                        height: 70,
+                        closeOnOverlay:false,
+                        dateFormat: 'yy-mm-dd',
+                        minDate: new Date((currentTime - 365 * 100 * 24 * 3600) * 1000),
+                        maxDate: new Date(currentTime * 1000),
+                        onSelect: function(C, D) {
+                            var timeSec = B.mobiscroll('getDate').getTime();
+                            var time = new Date(timeSec);
+                            var M = time.getMonth()+1 < 10 ? '0'+(time.getMonth()+1) : time.getMonth()+1;
+                            var D = time.getDate() < 10 ? '0' + (time.getDate()) : time.getDate();
+                            var dateFormate = time.getFullYear() + '-' + M + '-' + D;
+                            //$('#select_time').attr('value', dateFormate);
+                            vm.car_time=dateFormate;
+                            vm.car_time_str=timeSec/1000;
+                            vm.timecar=false;
+                        },
+                        onShow: function (event, inst) {
+                            vm.timecar=true;
+                        },
+                        onCancel: function (event, inst) {
+                            vm.timecar=false;
+                        }
+                    });
+                },
+                carNumSelet:function () {
+                    var vm=this;
+                    //carNum select
+                    $('.select-value2').mPicker({
+                        level: 2,
+                        dataJson: level3,
+                        rows: 5,
+                        height:70,
+                        Linkage: false,
+                        header: '<div class="mPicker-header"><a href="javascript:;" class="mPicker-cancel">取消</a><a href="javascript:;" class="mPicker-confirm">确定</a></div>',
+                        footer:'',
+                        idDefault: true,
+                        confirm: function () {
+                            //console.log(vm.carNumSelect)
+                            //console.log($('.select-value2').val())//提交这个val
+                        }
+                    })
+                },
+                idCard: function (val) {//验证身份证号
+                    var id = String(val),
+                        $WS = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2],
+                        $_modMap = ['1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2'],
+                        $sum = 0;
+                    var $id_17 = id.substring(0, 17);
+                    var $id_last = id.substring(17, 18);
+                    var $len_WS = $WS.length;
+                    for (var i = 0; i < $len_WS; i++) {
+                        $sum = $sum + $id_17[i] * $WS[i];
+                    }
+                    ;
+                    var last_num = $sum % 11;
+                    return $_modMap[last_num] == $id_last.toUpperCase();
+                },
+                checkName: function (val) {
+                    var name = /^[a-zA-Z\u4E00-\u9FA5·]{1,50}$/ //仅限文字，字母，maxlength = 50;
+                    return val && val.match(name)
+                },
+                checkCarNum: function (val) {
+                    //var licensePlate = /^[A-Za-z]{1}[A-Za-z_0-9]{5}$/;
+                    var licensePlate = /^[A-Za-z_0-9]{4,6}$/;
+                    return val && val.match(licensePlate)
+                },
+                totouxiang:function (e) {
+                    if(!$(e.target).hasClass("done")){
+                        $('.touxiang').css({'z-index':10,'opacity':1});
+                    }
+                    this.touxiangp=false;
+                },
+                toshenfen:function (e) {
+                    if(!$(e.target).hasClass("done")){
+                        $('.shenfenz').css({'z-index':10,'opacity':1});
+                    }
+                    $('.shenfenp').css({'z-index':-1,'opacity':0});
+                },
+                qxshenfenz:function () {
+                    $('.shenfenz').css({'z-index':-1,'opacity':0});
+                },
+                tojiashi:function (e) {
+                    if(!$(e.target).hasClass("done")){
+                        $('.jiashizz').css({'z-index':10,'opacity':1});
+                    }
+                    this.jiaship=false;
+                },
+                qxjiashiz:function () {
+                    $('.jiashizz').css({'z-index':-1,'opacity':0});
+                },
+                qxtouxiang:function () {
+                    $('.touxiang').css({'z-index':-1,'opacity':0});
+                },
+                toxingshi:function (e) {
+                    if(!$(e.target).hasClass("done")){
+                        $('.xingshizz').css({'z-index':10,'opacity':1});
+                    }
+                    this.xingship=false;
+                },
+                qxxingshiz:function () {
+                    $('.xingshizz').css({'z-index':-1,'opacity':0});
+                },
+                torenche:function (e) {
+                    if(!$(e.target).hasClass("done")){
+                        $('.renchehez').css({'z-index':10,'opacity':1});
+                    }
+                    this.cherenp=false;
+                },
+                qxrenchez:function () {
+                    $('.renchehez').css({'z-index':-1,'opacity':0});
+                },
+                towangyue:function () {
+                    this.wangyuez=true;
+                },
+                closewangyue:function () {
+                    this.wangyuez=false;
+                },
+                toseepic:function () {
+                    var vm=this;
+                    $('.toseepics').delegate(".done","click",function(){
+                        var id=$(this).attr('id');
+                        if(id=='jiaship'){
+                            vm.jiaship=true;
+                        }
+                        if(id=='shenfenp'){
+                            $('.shenfenp').css({'z-index':10,'opacity':1});
+                        }
+                        if(id=='xingship'){
+                            vm.xingship=true;
+                        }
+                        if(id=='renchep'){
+                            vm.cherenp=true;
+                        }
+                        if(id=='headp'){
+                            vm.touxiangp=true;
+                        }
+
+                    });
+                },
+                surexingshi:function () {
+                    this.xingship=false;
+                },
+                surejiashi:function () {
+                    this.jiaship=false;
+                },
+                surecheren:function () {
+                    this.cherenp=false;
+                },
+                surehead:function () {
+                    this.touxiangp=false;
+                },
+                sureshenfen:function () {
+                    $('.shenfenp').css({'z-index':-1,'opacity':0});
+                },
+                getgeolo:function () {
+                    var vm=this;
+                    var geolocation = new BMap.Geolocation();
+                    geolocation.getCurrentPosition(function(r){
+                        if(this.getStatus() == BMAP_STATUS_SUCCESS){
+                            console.log('您的位置：'+r.point.lng+','+r.point.lat);
+                            vm.showPosition(r.point.lng,r.point.lat)
+                        }
+                        else {
+                            alert('failed'+this.getStatus());
+                        }
+                    },{enableHighAccuracy: true})
+                },
+                getConfig:function (val) {
+                    var vm=this;
+                    $.ajax({
+                        url:ajaxUrl+'/Common/GetConfigByCity',
+                        type:'get',
+                        dataType:"json",
+                        data:{city:val,register_code:rootScope.register_code},
+                        success:function(data){
+                            if(data.code==200 && data.msg.ret_code==200){
+                                var result=data.msg.result;
+                                vm.jiatime=result.licenseAge;
+                                vm.cartime=result.carAge;
+                                if(result.showCondition==1){
+                                    vm.wenzhoumsg=true;
+                                }
+                                vm.ifneedWangyue=!!result.uploadLicense;
+                            }else if(data.code==200 && (data.msg.ret_code==501 || data.msg.ret_code==500)){
+                                faileHint($('.infoBox'),data.msg.ret_msg);
+                            }else {
+                                faileHint($('.infoBox'),'网络异常');
+                            }
+                        },
+                        error:function () {
+                            faileHint($('.infoBox'),'网络异常');
+                        }
+                    })
+                },
+                closewenzhoumsg:function () {
+                    this.wenzhoumsg=false;
+                },
+                showPosition:function (lng,lat) {
+                    var vm=this;
+                    $.ajax({
+                        url:ajaxUrl+'/Common/GetCityByCoordinate',
+                        type:'get',
+                        dataType:"json",
+                        data:{lat:lat,lng:lng,register_code:rootScope.register_code,coord_type:'baidu'},
+                        success:function(data){
+                            if(data.code==200 && data.msg.ret_code==200){
+                                $('#personal_dummy').val(data.msg.result.city);
+                                $('#personal').val(data.msg.result.short);
+                                $('#personal')[0].dispatchEvent(new Event('change'));
+                            }else {
+                                faileHint($('.infoBox'),data.msg.ret_msg);
+                            }
+                        },
+                        error:function () {
+                            faileHint($('.infoBox'),'网络异常');
+                        }
+                    })
+                },
+                checkjiaTime:function (str1,time) {
+                    var offset=(new Date().getTime())/1000-str1;
+                    var years = offset / 60 / 60 / 24 / 365 ;
+                    // console.log(years,offset / 60 / 60 / 24 / 365 ,offset,time,str1)
+                    return years >= time
+                },
+                checkcarTime:function (str1,time) {
+                    var offset=(new Date().getTime())/1000-str1;
+                    var years = offset / 60 / 60 / 24 / 365 ;
+                    //console.log(years,offset / 60 / 60 / 24 / 365 ,offset,time,str1)
+                    return years <= time
+                },
+                tijiao:function (e) {
+                    var vm=this;
+                    var companyId=GetQueryString('company_id');
+                    var vehicleNumber=$('.select-value2').val().split(" ").toString().replace(',','')+this.carNum;
+                    var iftrue=true;
+                    if(!this.checkName(this.registerName)){
+                        faileHint($('.infoBox'),'请输入正确的姓名')
+                        iftrue=false;
+                        return;
+                    }
+                    if(!this.idCard(this.id_card)){
+                        faileHint($('.infoBox'),'请输入正确的身份证号')
+                        iftrue=false;
+                        return;
+                    }
+                    if(!this.checkCarNum(this.carNum)){
+                        faileHint($('.infoBox'),'请输入正确的车牌号')
+                        iftrue=false;
+                        return;
+                    }
+                    if(!this.carbrand){
+                        faileHint($('.infoBox'),'请选择车型和颜色')
+                        iftrue=false;
+                        return;
+                    }
+                    if(!this.chezhuName){
+                        faileHint($('.infoBox'),'请输入车主姓名')
+                        iftrue=false;
+                        return;
+                    }
+                    if(!this.license_time){
+                        faileHint($('.infoBox'),'请选择初次领取驾照时间')
+                        return;
+                    }
+                    if(!this.checkjiaTime(this.license_time_str,this.jiatime)){
+                        faileHint($('.infoBox'),'请确保驾照领取时间超过'+this.jiatime+'年')
+                        return;
+                    }
+                    if(!this.car_time){
+                        faileHint($('.infoBox'),'请选择车辆注册日期')
+                        return;
+                    }
+                    if(!this.checkcarTime(this.car_time_str,this.cartime)){
+                        faileHint($('.infoBox'),'请确保车辆注册时间在'+this.cartime+'年内')
+                        return;
+                    }
+                    if(vm.ifneedWangyue && !$('#wangyuep').hasClass("done")){
+                        faileHint($('.infoBox'),'请上传网约车证件照')
+                        return;
+                    }
+//                        $('input[type=hidden]').each(function(){
+//                            if($(this).attr('id')=='renchez_img_id' || $(this).parent().hasClass("chuan")){
+//                                return;
+//                            }
+//                            if(!$(this).val()){
+//                                iftrue=false;
+//                            }
+//                        })
+//                        if(!iftrue){
+//                            faileHint($('.infoBox'),'您有未上传的照片，请全部上传完后再提交')
+//                            return;
+//                        }
+                    if(!vm.photoId){
+                        faileHint($('.infoBox'),'请上传头像');
+                        return;
+                    }
+                    if(!vm.identityImgId || !vm.identityBackImgId){
+                        faileHint($('.infoBox'),'请上传身份证照片');
+                        return;
+                    }
+                    if(!vm.driverLicenseImgId){
+                        faileHint($('.infoBox'),'请上传驾驶证照片');
+                        return;
+                    }
+                    if(!vm.carLicenseImgId){
+                        faileHint($('.infoBox'),'请上传行驶证照片');
+                        return;
+                    }
+                    var Data={
+                        register_code:rootScope.register_code,
+                        city: $('#personal').val(),
+                        name:vm.registerName,
+                        identityCard:vm.id_card.toUpperCase(),
+                        vehicleNumber:vehicleNumber.toUpperCase(),
+                        vehicleOwnerName:vm.chezhuName,
+                        licenseStartDate:vm.license_time,
+                        carRegisterTime:vm.car_time,
+                        carBrandId:vm.carBrandId,
+                        carModelId:vm.carModelId,
+                        carColor:vm.carColor,
+                        cellphone:rootScope.cellphone,
+                        carBrand:vm.carBrand,
+                        companyId:companyId?companyId:''
+                    }
+                    console.log(Data)
+                    $.ajax({
+                        type: 'post',
+                        url: ajaxUrl+'/Common/DriverRegister',
+                        dataType: 'json',
+                        data:Data,
+                        success: function (data) {
+                            if (data.code == 200) {
+                                if(data.msg.ret_code==200){
+                                    window.location.href='./audiW.html'
+                                }else if(data.msg.ret_code==401 || data.msg.ret_code==402 || data.msg.ret_code==601 || data.msg.ret_code==501 || data.msg.ret_code==502 || data.msg.ret_code==500){
+                                    faileHint($('.infoBox'),data.msg.ret_msg);
+                                }else {
+                                    faileHint($('.infoBox'),data.msg.ret_msg);
+                                }
+                            } else if (data.code == 499) {
+                                faileHint($('.infoBox'),data.msg.ret_msg);
+                            } else{
+                                faileHint($('.infoBox'),'未知错误');
+                            }
+                        },
+                        error: function (err) {
+                            faileHint($('.infoBox'),'网络异常');
+                        }
+                    })
+                },
+                downloadapp:function () {
+                    var u = navigator.userAgent;
+                    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+                    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+                    var link = '';
+                    link = 'http://d.yongche.com';
+                    isiOS && (link = 'https://appsto.re/cn/zwVq8.i');
+                    window.location.href=link;
+                },
+                tofix:function () {
+                    this.audiF=false;
+                    this.citySelet();
+                    //this.getgeolo();
+                    var oFailReason=rootScope.auditFailReason;
+                    if(typeof rootScope.auditFailReason==='string'){
+                        oFailReason=JSON.parse(rootScope.auditFailReason)
+                    }
+                    for(var key in oFailReason){
+                        switch(key)
+                        {
+                            case 'name':
+                                $('#regName').css("color",'#FF5252');
+                                break;
+                            case 'identity':
+                                $('#CardId').css({'color':'#FF5252'});
+                                break;
+                            case 'car_number_city':
+                                $('#personal_dummy').css({'color':'#FF5252'});
+                                $('.select-value2').css({'color':'#FF5252'});
+                                $('.carNumclass').css({'color':'#FF5252'});
+                                break;
+                            case 'car_number':
+                                $('.select-value2').css({'color':'#FF5252'});
+                                $('.carNumclass').css({'color':'#FF5252'});
+                                break;
+                            case 'car_type_fail':
+                                $('#carbrand').css({'color':'#FF5252'});
+                                break;
+                            case 'car_owner':
+                                $('#carOwnerc').css({'color':'#FF5252'});
+                                break;
+                            case 'car_date':
+                                $('#car_time').css({'color':'#FF5252'});
+                                break;
+                            case 'car_type':
+                                $('#carbrand').css({'color':'#FF5252'});
+                                break;
+                            case 'driver_license_date':
+                                $('#select_time').css({'color':'#FF5252'});
+                                break;
+                            case 'photo':
+                                // $('#head1').removeAttr('disabled');
+                                $('#headp').html('请重新上传');
+                                $('#headp').css({'color':'#FF5252'});
+                                break;
+                            case 'network_driver_img':
+                                // $('#fileElem1').removeAttr('disabled');
+                                //  $('#fileElem2').removeAttr('disabled');
+                                $('#wangyuep').html('请重新上传').removeClass("done");
+                                break;
+                            case 'network_transport_img':
+//                                    $('#fileElem3').removeAttr('disabled');
+//                                    $('#fileElem4').removeAttr('disabled');
+//                                    $('#fileElem5').removeAttr('disabled');
+                                $('#wangyuep').html('请重新上传').removeClass("done");
+                                break;
+                            case 'shuangzheng':
+//                                    $('#fileElem1').removeAttr('disabled');
+//                                    $('#fileElem2').removeAttr('disabled');
+//                                    $('#fileElem3').removeAttr('disabled');
+//                                    $('#fileElem4').removeAttr('disabled');
+//                                    $('#fileElem5').removeAttr('disabled');
+                                $('#wangyuep').html('请上传').removeClass("done");
+                                break;
+                            case 'car_front_img':
+                                // $('#renchez').removeAttr('disabled');
+                                $('#renchep').html('请上传').removeClass("done");
+                                break;
+                            case 'car_type_car_age':
+                                $('#carbrand').css({'color':'#FF5252'});
+                                break;
+                            default:
+
+                        }
+                    }
+                },
+                auto:function (Img) {
+                    var maxWidth=686;
+                    var maxHeight=686;
+                    var image = new Image();
+                    image.src = Img.src;
+                    if (image.width < maxWidth&& image.height < maxHeight) {
+                        Img.width = image.width;
+                        Img.height = image.height;
+                    }
+                    else  {
+                        if (maxWidth/ maxHeight  <= image.width / image.height)
+                        {
+                            Img.width = maxWidth;
+                            Img.height = maxWidth* (image.height / image.width);
+                        }
+                        else {
+                            Img.width = maxHeight  * (image.width / image.height);
+                            Img.height = maxHeight  ;
+                        }
+                    }
+                }
+            }
+        };
+        var router = new VueRouter();
+        router.map({
+            '/': {
+                component: Login,
+                name: 'login'
+            },
+            "/drawinfo": {
+                component: Drawinfo,
+                name: 'drawinfo'
+            }
+        });
+        var App = {};
+        router.start(App, '#app');
+        if(isLogin()){
+            router.go({ name: 'drawinfo'});
+        }else {
+            router.go({ name: 'login'});
+        }
+
+
+    }
+</script>
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-18761483-4', 'auto');
+    ga('send', 'pageview');
+</script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">  <!--自动检测在网页中可能出现的电话号码-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="yes" name=" apple-mobile-web-app-capable" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <title>审核成功</title>
+    <script>
+        if (/Android (\d+\.\d+)/.test(navigator.userAgent)){//安卓
+            var  version = parseFloat(RegExp.$1);
+            if (version>2.3){
+                var  phoneScale = parseInt(window.screen.width)/750;
+                document.write( '<meta name="viewport" content="width=750, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi,user-scalable=no">' );
+            } else {
+                document.write( '<meta name="viewport" content="width=750, target-densitydpi=device-dpi,user-scalable=no">' );
+            }
+        } else {
+            document.write('<meta name="viewport" content="width=750, user-scalable=no, target-densitydpi=device-dpi, viewport-fit=cover">');
+        }
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: "Arial";
+            -webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-tap-highlight-color:transparent;
+        }
+        a, img {
+            -webkit-touch-callout: none; /* 禁止长按链接与图片弹出菜单 */
+            text-decoration:none;
+        }
+        img{
+            display: inline-block;
+            vertical-align: middle;
+        }
+        html, body {
+            /*-webkit-user-select: none;   !* 禁止选中文本（如无文本选中需求，此为必选项） *!*/
+            user-select: none;
+            width:100%;
+            font-family: PingFangSC-Regular;
+            /*background: #f0f0f0;*/
+            height: 100%;
+        }
+        .audit{
+            position: fixed;
+            top: 0;
+            width: 100%;
+            left: 0;
+            bottom: 0;
+            background: #fff;z-index: 10;text-align: center;
+        }
+        .audit .img{
+            width: 100%;margin-bottom: 43px;margin-top: 165px;text-align: center;
+        }
+        .audit .img img{
+            width: 300px;
+            height: 300px;
+        }
+        .audit .title{
+            font-size: 34px;
+            color: #2E3245;margin-bottom: 15px;
+        }
+        .audit .text{
+            font-size: 28px;
+            color: #969696;line-height: 51px;
+        }
+        .audit .btn{
+            position: absolute;left: 30px;bottom: 32px;width: 690px;height: 104px;line-height: 104px;text-align: center;font-size: 36px;color: #fff;background: #FF5252;border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+<div class="audit">
+    <div class="img"><img src="./imgs/aduitSucc.png" alt=""></div>
+    <p class="title">审核成功</p>
+    <p class="text">恭喜您，资料验证通过，马上去登录吧！</p>
+    <div class="btn" onclick="downapp()" id="btn">下载司机端</div>
+</div>
+<script>
+    function downapp() {
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        var link = '';
+        link = 'http://d.yongche.com';
+        isiOS && (link = 'https://appsto.re/cn/zwVq8.i');
+        window.location.href=link;
+    }
+    if(document.cookie.indexOf('invite_code')>-1){
+        document.getElementById('btn').style.display='none';
+    }
+</script>
+</body>
+</html>
